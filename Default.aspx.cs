@@ -13,6 +13,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+        Response.Write("hai baaapa");
 
     }
     protected void Button2_Click(object sender, EventArgs e)

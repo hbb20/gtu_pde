@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="form1.aspx.cs" Inherits="gtu_pde.form1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeFile="form1.aspx.cs" Inherits="gtu_pde.form1" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -130,8 +130,7 @@
                 <asp:TextBox ID="txtcontactno1" runat="server" Height="24px" Width="150px"></asp:TextBox>
             </td>
             <td>
-                <asp:Button ID="btn_add_row2" runat="server" Text="Add row" 
-                    />
+                <asp:Button ID="btn_add_row2" runat="server" Text="Add row" />
             </td>
         </tr>
         <tr>
@@ -154,7 +153,8 @@
                     Width="150px" Visible="False"></asp:TextBox>
             </td>
             <td colspan="2" width="19%" height="30">
-                <asp:TextBox ID="txtemailid2" runat="server" Height="22px" Width="150px" Visible="False"></asp:TextBox>
+                <asp:TextBox ID="txtemailid2" runat="server" Height="22px" Width="150px" 
+                    Visible="False"></asp:TextBox>
             </td>
             <td height="30" class="style27">
                 <asp:TextBox ID="txtcontactno2" runat="server" Height="24px" Width="150px" 
