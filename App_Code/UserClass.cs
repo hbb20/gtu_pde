@@ -4,99 +4,100 @@ using System.Linq;
 using System.Web;
 
 
-public class UserClass:ConnectionClass
+public class UserClass : ConnectionClass
 {
-    public class StudentClass:ConnectionClass
-{
-    #region "All Field"
-
-    private int _userid,_teamid;
-    private DateTime user_createddate;
-    private string _username,_userpassword;
-    private char _userisactive;
-
-    #endregion
-
-
-    #region "All Properties"
-
-
-    public int User_Id
+    public class StudentClass : ConnectionClass
     {
-        get
+        #region "All Field"
+
+        private int _userid, _teamid;
+        private DateTime user_createddate;
+        private string _username, _userpassword;
+        private char _userisactive;
+
+        #endregion
+
+
+        #region "All Properties"
+
+
+        public int User_Id
         {
-            return _userid;
+            get
+            {
+                return _userid;
+            }
+            set
+            {
+                _userid = value;
+            }
         }
-        set
+
+
+        public int Team_Id
         {
-            _userid = value;
+            get
+            {
+                return _teamid;
+            }
+            set
+            {
+                _teamid = value;
+            }
         }
+
+
+        public DateTime User_CreatedDate
+        {
+            get
+            {
+                return user_createddate;
+            }
+            set
+            {
+                user_createddate = value;
+            }
+        }
+        public string User_Name
+        {
+            get
+            {
+                return _username;
+            }
+            set
+            {
+                _username = value;
+            }
+        }
+
+        public string User_Password
+        {
+            get
+            {
+                return _userpassword;
+            }
+            set
+            {
+                _userpassword = value;
+            }
+        }
+
+
+        public char User_IsActive
+        {
+            get
+            {
+                return _userisactive;
+            }
+            set
+            {
+                _userisactive = value;
+            }
+        }
+
+
+        #endregion////
+
+
     }
-
-   
-    public int Team_Id
-    {
-        get
-        {
-            return _teamid;
-        }
-        set
-        {
-            _teamid = value;
-        }
-    }
-
-  
-    public DateTime User_CreatedDate
-    {
-        get
-        {
-            return user_createddate;
-        }
-        set
-        {
-            user_createddate = value;
-        }
-    }
-    public string User_Name
-    {
-        get
-        {
-            return _username;
-        }
-        set
-        {
-            _username = value;
-        }
-    }
-
-    public string User_Password
-    {
-        get
-        {
-            return _userpassword;
-        }
-        set
-        {
-            _userpassword = value;
-        }
-    }
-
-
-    public char User_IsActive
-    {
-        get
-        {
-            return _userisactive;
-        }
-        set
-        {
-            _userisactive = value;
-        }
-    }
-
-
-    #endregion////
-
-	
 }

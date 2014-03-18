@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.SqlClient;
+using System.Data;
 
 
 public class InventorClass:ConnectionClass
 {
     #region "All Field"
 
-    private int _applicantid, _formid;
+    private int _applicantid, _form_id;
     private string _applicantname, _applicantnationality, _applicantaddress,_applicantmobileno,_applicantemailid;
 
     #endregion
@@ -33,10 +35,11 @@ public class InventorClass:ConnectionClass
     {
         get
         {
-            return _formid;
+            return _form_id;
+        }
         set
         {
-            _formid = value;
+            _form_id = value;
         }
     }
 
