@@ -17,7 +17,7 @@
                 <td align="left" height="40px" width="250px" style="padding-left: 100px">
                     Semester:</td>
                 <td align="left" height="40px" style="padding-left: 10px" width="250px">
-                    <asp:RadioButton ID="RadioButton1" runat="server" Text="7<sup>th</sup> SEM" />
+                    <asp:RadioButton ID="rb7thsem" runat="server" Text="7<sup>th</sup> SEM" />
                     &nbsp;&nbsp;
                     <asp:RadioButton ID="RadioButton2" runat="server" Text="8<sup>th</sup> SEM" />
                 </td>
