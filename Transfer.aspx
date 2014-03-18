@@ -25,7 +25,9 @@
             <tr>
                 <td align="left" height="40px" width="250px" style="padding-left: 100px" 
                     class="style2">
-                    Existing Enrollment Number :</td>
+                    Existing Enrollment 
+                    <br />
+                    Number :</td>
                 <td align="left" height="40px" style="padding-left: 10px" width="250px">
                     <asp:TextBox ID="txtexisting_enrollno" runat="server"></asp:TextBox>
                 </td>
