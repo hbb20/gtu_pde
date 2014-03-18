@@ -1,16 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="form1.aspx.cs" Inherits="gtu_pde.form1" %>
 
-<script runat="server">
 
-    protected void btn_add_row2_Click(object sender, EventArgs e)
-    {
-        txtApplicantaddress2.Visible = true;
-        txtApplicantNationality2.Visible = true;
-        txtapplicantfullname2.Visible = true;
-        txtcontactno2.Visible = true;
-        txtemailid2.Visible = true;
-    }
-</script>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style1
@@ -164,8 +154,7 @@
                     Width="150px" Visible="False"></asp:TextBox>
             </td>
             <td colspan="2" width="19%" height="30">
-                <asp:TextBox ID="txtemailid2" runat="server" Height="22px" Width="150px" 
-                    Visible="False"></asp:TextBox>
+                <asp:TextBox ID="txtemailid2" runat="server" Height="22px" Width="150px" Visible="False"></asp:TextBox>
             </td>
             <td height="30" class="style27">
                 <asp:TextBox ID="txtcontactno2" runat="server" Height="24px" Width="150px" 

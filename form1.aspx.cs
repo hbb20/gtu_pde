@@ -13,5 +13,14 @@ namespace gtu_pde
         {
 
         }
+        //protected void btn_add_row2_Click(object sender, EventArgs e)
+        //{
+        //    txtApplicantaddress2.Visible = true;
+        //    txtApplicantNationality2.Visible = true;
+        //    txtapplicantfullname2.Visible = true;
+        //    txtcontactno2.Visible = true;
+        //    txtemailid2.Visible = true;
+           
+        //}
     }
 }
