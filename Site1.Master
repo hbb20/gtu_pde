@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="gtu_pde.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Education</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+<meta name="keywords" content="free css templates, education, school, college, university" />
+<meta name="description" content="Education template is for academic related websites" />
+<link href="gtu_acpc/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #templatemo_footer_wrapper
+        {
+            height: 93px;
+        }
+    </style>
+</head>
+<body><div id="content"></div>
+<div id="templatemo_header_wrapper">
+   <img src="gtu_acpc/images/GTU%20Logonew.1jpg%20-%20Copy.jpg" />
+    
+</div> 
+
+<div id="templatemo_menu_wrapper" >
+    <div id="templatemo_menu">
+        
+        <ul>
+            <li><a href="#" target="_parent">Home</a></li>
+            <li><a href="#" target="_parent">Project Details</a></li>
+            <li><a href="#" target="_parent">PSAR</a></li>
+            <li><a href="#" target="_parent">Members</a></li>
+            <li><a href="#">Logout</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>    	
+    
+    </div> <!-- end of templatemo_menu -->
+</div>
+
+<div id="content-left"> 
+<asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+
+
+</asp:ContentPlaceHolder>
+</div>
+   <div id="content-right">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</div>
+<div id="templatemo_footer_wrapper">
+
+    <div id="templatemo_footer">
+    
+        <ul class="footer_menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" target="_parent">Templates</a></li>
+                    <li><a href="#" target="_parent">Flash Files</a></li>
+                    <li><a href="#" target="_parent">Gallery</a></li>
+                    <li><a href="#">Members</a></li>
+                    <li class="last_menu"><a href="#">Contact Us</a></li>
+                </ul>
+      </div>
+    
+</div>
+
+</body>
+</html>
+    
+    
