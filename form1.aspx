@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="form1.aspx.cs" Inherits="gtu_pde.form1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeFile="form1.aspx.cs" Inherits="gtu_pde.form1" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -74,7 +74,7 @@
     {
         height: 31px;
     }
-        #form1
+        #frm1
     {
         width: 800px;
         margin-right: 89px;
@@ -86,8 +86,9 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+<form id="frm1" runat="server">
 <table class="style1" bgcolor="White">
+
         <tr>
             <td height="30" width="5%">
                 <strong>1</strong>.</td>
@@ -130,7 +131,7 @@
                 <asp:TextBox ID="txtcontactno1" runat="server" Height="24px" Width="150px"></asp:TextBox>
             </td>
             <td>
-                <asp:Button ID="btn_add_row2" runat="server" Text="Add row" 
+                <asp:Button ID="btn_add_row2" runat="server" Text="Add row" onclick="btn_add_row2_Click" 
                     />
             </td>
         </tr>
@@ -435,10 +436,12 @@
                 </td>
             <td colspan="6" class="style24">
                 </td>
-        </tr>
-        
+        </tr>  
+    
     </table>
+   
     </form>
+   
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">

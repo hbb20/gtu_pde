@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="gtu_pde.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="gtu_pde.login" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -93,8 +93,9 @@
                 
                 </table>
                 <center>
-                    <asp:Button ID="btnLogin" runat="server" Text="Submit" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" BackColor="#66FFFF"
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
+                        onclick="btnLogin_Click" PostBackUrl="~/form1.aspx" /></center>
                         <br />
                         <br />
             
