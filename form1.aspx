@@ -131,7 +131,7 @@
             </td>
             <td>
                 <asp:Button ID="btn_add_row2" runat="server" Text="Add row" 
-                    onclick="btn_add_row2_Click" />
+                    />
             </td>
         </tr>
         <tr>
