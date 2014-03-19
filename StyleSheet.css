@@ -1,0 +1,19 @@
+﻿body {
+}
+
+.txt_active
+{
+    color: Green;
+    border-color:Maroon;
+    border-right-width:0px;
+    border-top-width:0px; 
+}
+    
+.txt_area_active
+{
+    color: Green;
+    border-color:Maroon;
+    border-width:2px;
+    border-right-width:0px;
+    border-bottom-width:0px; 
+}

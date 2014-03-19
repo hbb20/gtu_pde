@@ -18,10 +18,10 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--<div class="content_box">--%>
         <form runat="server">
-            <table cellpadding="10px" cellspacing="10px" style="margin-left: 120px" bgcolor="White" width="675px">
+            <table cellpadding="10px" cellspacing="10px" bgcolor="White" width="70%">
                 <tr>
                     
                     <td class="style2"><strong>Team Id:</strong></td>

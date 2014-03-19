@@ -51,7 +51,7 @@
 	
 	.form-bg {
 		width: 600px;
-		height: 400px;
+		height: 450px;
 		-moz-border-radius:9px;
 		-webkit-border-radius:9px;
 		border-radius:9px;
@@ -63,7 +63,7 @@
 	
 	.form-bg form {
 		width: 600px;
-		height: 400px;
+		height: 450px;
 		background: #fff url(../images/bg_form.jpg) repeat-x top left;		
 		-moz-border-radius:4px;
 		-webkit-border-radius:4px;
@@ -144,11 +144,11 @@
 	p.forgot {
 		text-align: center;
 		margin-top: 10px;
-		margin-left:-55px;
+		
 		color: #fff;
 		font-size: 12px;
 		font-weight: bold;
-		text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+		
 	}
 	
 	p.forgot a {
