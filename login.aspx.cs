@@ -15,8 +15,24 @@ namespace gtu_pde
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            
+            bool loginStatus = false;
+
+            int teamid=Convert.ToInt32(txtteamid.Text);
+            string username = txtusername.Text.ToString();
+            string password = txtpswd.Text.ToString();
+
+           UserClass objlogin = new UserClass();
+        
+            loginStatus = objlogin.CheckUser(teamid,username,password);
+
+            if (loginStatus)
+            {
+                Response.Redirect("Home.aspx");
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
+            }
         }
 }
 }
