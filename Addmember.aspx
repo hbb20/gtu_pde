@@ -19,8 +19,13 @@
                 <td align="left" height="40px" style="padding-left: 10px" width="250px">
                     <asp:RadioButton ID="rb7thsem" runat="server" Text="7<sup>th</sup> SEM" />
                     &nbsp;&nbsp;
-                    <asp:RadioButton ID="RadioButton2" runat="server" Text="8<sup>th</sup> SEM" />
-                </td>
+                      <asp:RadioButton ID="RadioButton2" runat="server" Text="8<sup>th</sup> SEM" />
+                    &nbsp;&nbsp;
+                    </td>
+                 
+                   
+                    
+
             </tr>
             
             <tr>

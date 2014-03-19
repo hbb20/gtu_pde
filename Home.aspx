@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="gtu_pde.Home" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="gtu_pde.Home" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style1
@@ -129,7 +131,7 @@
                         <td class="style1" align="center">
                             <asp:Button ID="btnConfirm" runat="server" Text="Confirm" Width="80px" 
                                 style="margin-left: 16px" BackColor="Maroon" CssClass="style10" 
-                                Font-Bold="True" ForeColor="White" />
+                                Font-Bold="True" ForeColor="White" onclick="btnConfirm_Click" />
                         </td>
                         <td class="style1">
                             <asp:Button ID="btnReject" runat="server" Text="Reject" Width="80px" 
