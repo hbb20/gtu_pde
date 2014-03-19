@@ -67,6 +67,7 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<form runat="server">
 <asp:Table ID="Table1" runat="server">
 <asp:TableRow>
 <asp:TableCell Width="30%">
@@ -146,5 +147,6 @@
        
   </asp:TableCell>
 </asp:TableRow>                   
-</asp:Table>			
+</asp:Table>	
+</form>		
 </asp:Content>
