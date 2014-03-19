@@ -110,7 +110,8 @@
                 </table>
                 <center>
                     <asp:Button ID="btnLogin" runat="server" Text="Get Your Password" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
+                        onclick="btnLogin_Click" /></center>
                        
            <asp:Panel ID="Pnlforgotpswd" runat="server" Visible="false">
                 <asp:Label ID="lblforgotpswd" runat="server" Text="Label"></asp:Label>

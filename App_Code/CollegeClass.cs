@@ -19,7 +19,7 @@ public class CollegeClass:ConnectionClass
     #region "All Field"
 
     private int _collegeid;
-    private string _collegecode, _collegename, _collegezone,_temp;
+    private string _collegecode, _collegename, _collegezone;
     
     #endregion
 

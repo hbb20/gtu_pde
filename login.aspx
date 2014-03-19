@@ -1,7 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="gtu_pde.login" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script runat="server">
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
@@ -94,7 +105,8 @@
                 </table>
                 <center>
                     <asp:Button ID="btnLogin" runat="server" Text="Submit" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
+                        onclick="btnLogin_Click" /></center>
                         <br />
                         <br />
             
