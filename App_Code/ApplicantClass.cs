@@ -106,8 +106,5 @@ public class InventorClass:ConnectionClass
 
     #endregion
 
-    #region "Methods"
-    
-
-    #endregion
+  
 }
