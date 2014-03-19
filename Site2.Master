@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="gtu_pde.Site2" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site2.master.cs" Inherits="gtu_pde.Site2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -17,38 +17,42 @@
             height: 80px;
             width: 983px;
         }
+        .menu_button
+        { text-decoration:"Underline";
+        }
+        .menu_button:hover
+        {
+       
+            letter-spacing:2px;
+            
+        }
     </style>
 </head>
 <body>
-<div id="content"></div>
+
 <div id="templatemo_header_wrapper">
    <img src="gtu_acpc/images/GTU%20Logonew.1jpg%20-%20Copy.jpg" />
     
 </div> 
 
-<div id="templatemo_menu_wrapper" >
+<div id="templatemo_menu_wrapper" align="center" >
     <div id="templatemo_menu">
         
         <ul>
-            <li><a href="Home.aspx" target="_parent">Home</a></li>
-            <li><a href="Project_Details.aspx" target="_parent">Project Details</a></li>
-            <li><a href="form1.aspx" target="_parent">PDE</a></li>
-            <li><a href="Member.aspx" target="_parent">Members</a></li>
-            <li><a href="#">Logout</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a class="menu_button" href="Home.aspx" target="_parent">Home</a></li>
+            <li><a class="menu_button"  href="Project_Details.aspx" target="_parent">Project Details</a></li>
+            <li><a class="menu_button" href="form1.aspx" target="_parent">PDE</a></li>
+            <li><a class="menu_button" href="Member.aspx" target="_parent">Members</a></li>
+            <li><a class="menu_button" href="#">Logout</a></li>
+            <li><a class="menu_button" href="#">Contact us</a></li>
         </ul>    	
     
     </div> <!-- end of templatemo_menu -->
 </div>
 
-<div id="content-left"> 
-<asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-
-
-</asp:ContentPlaceHolder>
-</div>
-   <div id="content-right">
+   <div align="center">
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+   
     </asp:ContentPlaceHolder>
 </div>
 

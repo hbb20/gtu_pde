@@ -22,8 +22,8 @@ img { border-style: none;
     border-width: medium;
     margin: 4px 0px 0px 0px;
     padding: 0px;
-    height: 143px;
-    width: 1315px;
+    height: 102px;
+    width: 882px;
 }
 
 .float_l {
@@ -86,9 +86,10 @@ h3 {
 #templatemo_wrapper 
 {
     background-color:White;
-	width: 1103px;
+	width: 100%;
 	margin: 0 auto;
 	height:150px;
+	background-repeat:repeat-x;
 	/*background:url(E:\Website\sample\gtu_pde\gtu_pde\gtu_acpc\images\logo.png)no-repeat;*/
 }
 
@@ -100,8 +101,8 @@ h3 {
 
 #templatemo_header_wrapper {
 	background-color:White;
-	width: 121%;
-	height: 160px;
+	width: 100%;
+	height: 80px;
 	margin: 0 auto;
 	background-image:url(E:\Website\sample\gtu_pde\gtu_pde\gtu_acpc\images\templatemo_header.jpg)no-repeat;
 }
@@ -156,26 +157,33 @@ h3 {
 /* end of header */
 
 /* menu */
-
+#menu_button
+{
+    color:Orange;
+}
+#menu_button:hover
+{
+    color:Green;
+    background-color:Aqua;
+}
 #templatemo_menu_wrapper {
 	width: 100%;
-	height: 87px;
+	height: 101px;
 	background: url(images/templatemo_menu.jpg) repeat-x;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
+    
+    margin-bottom:0px;
 }
 
 #templatemo_menu {
 	width: 920px;
 	height: 90px;
-	margin: 0 auto;
+	
 	padding: 0 30px;
 	
 }
 
 #templatemo_menu {
-	width: 920px;
+	width: 626px;
 	height: 90px;
 	margin: 0 auto;
 	padding: 0 30px;
@@ -187,7 +195,8 @@ h3 {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
-    height: 85px;
+    height: 91px;
+    width: 676px;
 }
 
 #templatemo_menu ul li {
@@ -200,9 +209,9 @@ h3 {
 {
     position: relative;
     float: left;
-    width: 152px;
+    width: 106px;
     display: block;
-    height: 40px;
+    height: 53px;
     padding: 50px 0 0 0;
     text-align: center;
     font-size: 14px;
@@ -210,6 +219,9 @@ h3 {
     color: #800000;
     font-weight: bold;
     outline: none;
+    top: -8px;
+    left: 1px;
+    right: -1px;
 }
 
 .current
