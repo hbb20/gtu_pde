@@ -64,8 +64,9 @@
                 <td class="style2">
                     <asp:TextBox ID="txtteamid" placeholder="Teamid" runat="server" Height="40px" Width="235px"></asp:TextBox>
                     </td>
-                    <td>
-                          
+                    <td style="padding-left: 10px" valign="top">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ErrorMessage="Enter Team Id" ControlToValidate="txtteamid"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -104,23 +105,26 @@
                 <td>
                     <asp:TextBox ID="txtsecans" placeholder="Answer" runat="server" Height="40px" Width="235px"></asp:TextBox>
                 </td>
-                <td></td>
+                <td style="padding-left: 10px" valign="top">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                            ErrorMessage="Enter Answer" ControlToValidate="txtsecans"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 
                 </table>
                 <center>
-                    <asp:Button ID="btnLogin" runat="server" Text="Get Your Password" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
+                    <asp:Button ID="btnGetPassword" runat="server" Text="Get Your Password" BackColor="#66FFFF"
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
+                        onclick="btnGetPassword_Click" /></center>
                        
            <asp:Panel ID="Pnlforgotpswd" runat="server" Visible="false">
-                <asp:Label ID="lblforgotpswd" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lblforgotpswd" runat="server" Text=""></asp:Label>
             </asp:Panel>
 			</form>
 		</div>
 
 	
-		<p class="forgot">Forgot your password? <a href="">Click here to reset it.</a></p>
-
+		
 
 	</div><!-- container -->
 

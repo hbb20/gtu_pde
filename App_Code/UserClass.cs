@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using GTU_PDE;
 
    
 public class UserClass:ConnectionClass
@@ -13,9 +14,9 @@ public class UserClass:ConnectionClass
 
     #region "All Field"
 
-    private int _userid,_teamid;
+    private int _userid,_teamid,_queid;
     private DateTime user_createddate;
-    private string _username,_userpassword;
+    private string _username,_userpassword,_securityans;
     private char _userisactive;
 
     #endregion
@@ -49,6 +50,29 @@ public class UserClass:ConnectionClass
         }
     }
 
+    public int SecurityQue_ID
+    {
+        get
+        {
+            return _queid;
+        }
+        set
+        {
+            _queid = value;
+        }
+    }
+
+    public string User_SecurityAns
+    {
+        get
+        {
+            return _securityans;
+        }
+        set
+        {
+            _securityans = value;
+        }
+    }
   
     public DateTime User_CreatedDate
     {
@@ -121,5 +145,27 @@ public class UserClass:ConnectionClass
         {
             return false;
         }
+    }
+
+
+
+    public string GetPassword(int teamid, string username, int securityque, string securityans)
+    {
+        SqlParameter[] pmt = new SqlParameter[4];
+
+        pmt[0] = new SqlParameter("@Team_Id", this.Team_Id);
+        pmt[0].DbType = DbType.Int32;
+
+        pmt[1] = new SqlParameter("@User_Name", this.User_Name);
+        pmt[1].DbType = DbType.String;
+
+        pmt[2] = new SqlParameter("@SecurityQue_ID", this.SecurityQue_ID);
+        pmt[2].DbType = DbType.Int32;
+
+        pmt[3] = new SqlParameter("@User_SecurityAns", this.User_SecurityAns);
+        pmt[3].DbType = DbType.String;
+
+        DataAccess.ExecuteNonQuery(con, CommandType.StoredProcedure, "GetPassword", pmt);
+        return "true";
     }
 }

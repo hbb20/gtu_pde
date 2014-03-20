@@ -199,7 +199,9 @@ h3 {
     width: 676px;
 }
 
-#templatemo_menu ul li {
+#templatemo_menu ul li 
+{
+   
 	padding: 0px;
 	margin: 0px;
 	display: inline;

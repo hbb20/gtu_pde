@@ -128,8 +128,12 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<<<<<<< HEAD
+<form id="frm1" runat="server">
+=======
 
     <form id="frm1" runat="server">
+>>>>>>> a788329375d3d6b971fbf3153cce2313e5ab9261
 <table class="style1" bgcolor="White">
 
         <tr>
@@ -194,6 +198,11 @@
                 <asp:TextBox ID="txtApplicantaddress2" runat="server" placeholder="Address of Applicant2"  Height="22px" 
                     Width="150px"></asp:TextBox>
             </td>
+<<<<<<< HEAD
+            <td>
+                <asp:Button ID="btn_add_row2" runat="server" Text="Add row" onclick="btn_add_row2_Click" 
+                    />
+=======
             <td colspan="2" width="19%" class="style21">
                 <asp:TextBox ID="txtApplicantemailid2" runat="server"  placeholder="Email ID of Applicant2" Height="22px" 
                     Width="150px" ReadOnly="True"></asp:TextBox>
@@ -201,6 +210,7 @@
             <td class="style37">
                 <asp:TextBox ID="txtApplicantcontactno2" runat="server" placeholder="Mobile of Applicant2"  Height="24px" 
                     Width="150px" ReadOnly="True"></asp:TextBox>
+>>>>>>> a788329375d3d6b971fbf3153cce2313e5ab9261
             </td>
         </tr>
 
@@ -678,6 +688,14 @@
     </table>
    
     </form>
+<<<<<<< HEAD
+   
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+
+=======
+>>>>>>> a788329375d3d6b971fbf3153cce2313e5ab9261
    
 </asp:Content>
 
