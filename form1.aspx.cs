@@ -48,7 +48,7 @@ namespace gtu_pde
         //    txtemailid2.Visible = true;
 
         //}
-<<<<<<< HEAD
+
         protected void btn_add_row2_Click(object sender, EventArgs e)
         {
             
@@ -60,7 +60,7 @@ namespace gtu_pde
            
         }
 }
-=======
+
 
         protected void btn_next_form_Click(object sender, EventArgs e)
         {

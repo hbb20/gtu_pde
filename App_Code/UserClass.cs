@@ -166,6 +166,10 @@ public class UserClass:ConnectionClass
         pmt[3].DbType = DbType.String;
 
         DataAccess.ExecuteNonQuery(con, CommandType.StoredProcedure, "GetPassword", pmt);
+<<<<<<< HEAD
         return "true";
+=======
+        return true;
+>>>>>>> 3d259baed550beefc45a2b8c9806a530a32947a5
     }
 }
