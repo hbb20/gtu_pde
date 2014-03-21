@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Data;
+using System.Configuration;
 
 
 public class ConnectionClass
@@ -13,7 +14,8 @@ public class ConnectionClass
 
     public ConnectionClass()
     {
-        con = new SqlConnection(@"Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True;User Instance=True");
+        con = new SqlConnection(ConfigurationManager.ConnectionStrings["db1ConnectionString"].ToString());
         con.Open();
     }
+    
 }

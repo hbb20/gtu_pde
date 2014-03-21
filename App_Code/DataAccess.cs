@@ -53,9 +53,73 @@ namespace GTU_PDE
                 cmd.Parameters.Add(item);
             }
         }
+        public static DataSet ExecuteDataSet(string strConString, CommandType cmdType, string strProcedureName)
+        {
+            using (SqlConnection con = new SqlConnection(strConString))
+            {
+                con.Open();
 
+                return ExecuteDataset(con, cmdType, strProcedureName);
+            }
+        }
 
+        public static DataSet ExecuteDataset(SqlConnection con, CommandType cmdType, string strProcedureName)
+        {
+            DataSet dset = new DataSet();
 
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = cmdType;
+                cmd.CommandText = strProcedureName;
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
+                ad.Fill(dset);
+
+                return dset;
+
+            }
+            catch (Exception ex)
+            {
+                return dset;
+            }
+        }
+
+        public static DataSet ExecuteDataSet(string strConString, CommandType cmdType, string strProcedureName, SqlParameter[] objParameters)
+        {
+            using (SqlConnection con = new SqlConnection(strConString))
+            {
+                con.Open();
+
+                return ExecuteDataSet(con, cmdType, strProcedureName, objParameters);
+            }
+        }
+
+        public static DataSet ExecuteDataSet(SqlConnection con, CommandType cmdType, string strProcedureName, SqlParameter[] objParameters)
+        {
+            DataSet dset = new DataSet();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = cmdType;
+                cmd.CommandText = strProcedureName;
+
+                AttachParameters(cmd, objParameters);
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
+                ad.Fill(dset);
+
+                return dset;
+
+            }
+            catch (Exception ex)
+            {
+                return dset;
+            }
+        }
 
 
     }

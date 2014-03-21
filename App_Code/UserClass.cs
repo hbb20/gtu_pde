@@ -149,23 +149,24 @@ public class UserClass:ConnectionClass
 
 
 
-    public string GetPassword(int teamid, string username, int securityque, string securityans)
+    public DataSet GetPassword(int teamid, int securityque, string securityans)
     {
-        SqlParameter[] pmt = new SqlParameter[4];
+        SqlParameter[] pmt = new SqlParameter[3];
 
         pmt[0] = new SqlParameter("@Team_Id", this.Team_Id);
         pmt[0].DbType = DbType.Int32;
 
-        pmt[1] = new SqlParameter("@User_Name", this.User_Name);
-        pmt[1].DbType = DbType.String;
+        pmt[1] = new SqlParameter("@SecurityQue_ID", this.SecurityQue_ID);
+        pmt[1].DbType = DbType.Int32;
 
-        pmt[2] = new SqlParameter("@SecurityQue_ID", this.SecurityQue_ID);
-        pmt[2].DbType = DbType.Int32;
+        pmt[2] = new SqlParameter("@User_SecurityAns", this.User_SecurityAns);
+        pmt[2].DbType = DbType.String;
 
-        pmt[3] = new SqlParameter("@User_SecurityAns", this.User_SecurityAns);
-        pmt[3].DbType = DbType.String;
-
-        DataAccess.ExecuteNonQuery(con, CommandType.StoredProcedure, "GetPassword", pmt);
-        return true;
+        DataSet dset = new DataSet();
+        
+        dset= DataAccess.ExecuteDataSet(con, CommandType.StoredProcedure, "GetPasswordByID", pmt);
+        return dset;
     }
-}
+
+
+    }
