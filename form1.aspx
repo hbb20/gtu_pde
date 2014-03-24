@@ -125,6 +125,10 @@
             width: 22%;
             height: 30px;
         }
+        .style38
+        {
+            width: 8px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -197,10 +201,7 @@
                     Width="150px"></asp:TextBox>
             </td>
 
-            <td>
-                <asp:Button ID="btn_add_row2" runat="server" Text="Add row" onclick="btn_add_row2_Click" 
-                    />
-
+                
             <td colspan="2" width="19%" class="style21">
                 <asp:TextBox ID="txtApplicantemailid2" runat="server"  placeholder="Email ID of Applicant2" Height="22px" 
                     Width="150px" ReadOnly="True"></asp:TextBox>
@@ -480,7 +481,7 @@
                 APPLICANT/AUTHORIZED
                 <br />
                 PATENT AGENT IN INDIA:</b></td>
-            <td align="right" colspan="2" class="style17" width="12%">
+            <td align="right" colspan="2" class="style17">
                 Name:</td>
             <td colspan="2" class="style18">
                 <asp:TextBox ID="txtCorrespondencename" runat="server" Height="24px" 
@@ -488,7 +489,7 @@
             </td>
             </tr>
         <tr>
-            <td align="right"  colspan="2" class="style16" width="12%">
+            <td align="right"  colspan="2" class="style16">
                 Address:</td>
             <td colspan="2" class="style14">
                 <asp:TextBox ID="txtCorrespondenceaddress" runat="server" Height="81px" Width="147px" 
@@ -496,7 +497,7 @@
             </td>
             </tr>
         <tr>
-            <td align="right"  colspan="2" height="30" class="style15" width="12%">
+            <td align="right"  colspan="2" height="30" class="style15">
                 Telephone No:</td>
             <td colspan="2" height="30">
                 <asp:TextBox ID="txtCorrespondencetelephoneno" runat="server" Height="24px" 
@@ -504,7 +505,7 @@
             </td>
             </tr>
         <tr>
-            <td align="right"  colspan="2" height="30" class="style15" width="12%">
+            <td align="right"  colspan="2" height="30" class="style15">
                 Fax No.</td>
             <td colspan="2" height="30">
                 <asp:TextBox ID="txtCorrespondencefaxno" runat="server" Height="24px" 
@@ -512,7 +513,7 @@
             </td>
             </tr>
         <tr>
-            <td align="right"  colspan="2" height="30" class="style15" width="12%">
+            <td align="right"  colspan="2" height="30" class="style15">
                 Mobile No:</td>
             <td colspan="2" height="30">
                 <asp:TextBox ID="txtCorrespondencemobileno" runat="server" Height="22px" 
@@ -520,7 +521,7 @@
             </td>
             </tr>
         <tr>
-            <td  align="right" colspan="2" height="30" class="style15" width="12%">
+            <td  align="right" colspan="2" height="30" class="style15">
                 Email Id:</td>
             <td colspan="2" height="30">
                 <asp:TextBox ID="txtCorrespondenceemailid" runat="server" Height="22px" 

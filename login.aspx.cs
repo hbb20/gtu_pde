@@ -15,10 +15,7 @@ namespace gtu_pde
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            
-            
-=======
+
             bool loginStatus = false;
 
             int teamid=Convert.ToInt32(txtteamid.Text);
@@ -37,7 +34,7 @@ namespace gtu_pde
             {
                 Response.Redirect("login.aspx");
             }
->>>>>>> a788329375d3d6b971fbf3153cce2313e5ab9261
+
         }
 }
 }

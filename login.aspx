@@ -87,10 +87,6 @@
                     <asp:Button ID="btnLogin" runat="server" Text="Login" BackColor="#66FFFF"
                         ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
                         onclick="btnLogin_Click" PostBackUrl="~/form1.aspx" /></center>
-<<<<<<< HEAD
-                        <br />
-=======
->>>>>>> a788329375d3d6b971fbf3153cce2313e5ab9261
                         <br />
                         <p class="forgot">
                             <asp:LinkButton ID="lnkbtnForgotPassword" runat="server" Font-Bold="True" 

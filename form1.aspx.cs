@@ -49,17 +49,8 @@ namespace gtu_pde
 
         //}
 
-        protected void btn_add_row2_Click(object sender, EventArgs e)
-        {
-            
-            txtApplicantaddress2.Visible = true;
-            txtApplicantNationality2.Visible = true;
-            txtapplicantfullname2.Visible = true;
-            txtcontactno2.Visible = true;
-            txtemailid2.Visible = true;
-           
-        }
-}
+    
+
 
 
         protected void btn_next_form_Click(object sender, EventArgs e)
@@ -184,6 +175,7 @@ namespace gtu_pde
                 txtApplicantaddress3.Text = "";
             }
         }
+
         protected void chk_box_mem_4_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_box_mem_4.Checked == true)
@@ -550,5 +542,5 @@ namespace gtu_pde
 
 
     }
->>>>>>> a788329375d3d6b971fbf3153cce2313e5ab9261
+
 }
