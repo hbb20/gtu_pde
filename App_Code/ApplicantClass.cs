@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
-
-public class InventorClass : ConnectionClass
+public class InventorClass:ConnectionClass1
 {
     #region "All Field"
 
-    private int _applicantid, _form_id;
-    private string _applicantname, _applicantnationality, _applicantaddress, _applicantmobileno, _applicantemailid;
+    private int _applicantid, _formid;
+    private string _applicantname, _applicantnationality, _applicantaddress,_applicantmobileno,_applicantemailid;
 
     #endregion
 
@@ -23,11 +22,11 @@ public class InventorClass : ConnectionClass
     {
         get
         {
-            return _inventorid;
+            return _applicantid;
         }
         set
         {
-            _inventorid = value;
+            _applicantid = value;
         }
     }
 
@@ -35,11 +34,11 @@ public class InventorClass : ConnectionClass
     {
         get
         {
-            return _form_id;
+            return _formid;
         }
         set
         {
-            _form_id = value;
+            _formid = value;
         }
     }
 
@@ -47,11 +46,11 @@ public class InventorClass : ConnectionClass
     {
         get
         {
-            return _inventorname;
+            return _applicantname;
         }
         set
         {
-            _inventorname = value;
+            _applicantname = value;
         }
     }
 
@@ -59,11 +58,11 @@ public class InventorClass : ConnectionClass
     {
         get
         {
-            return _inventornationality;
+            return _applicantnationality;
         }
         set
         {
-            _inventornationality = value;
+            _applicantnationality = value;
         }
     }
 
@@ -72,11 +71,11 @@ public class InventorClass : ConnectionClass
     {
         get
         {
-            return _inventoraddress;
+            return _applicantaddress;
         }
         set
         {
-            _inventoraddress = value;
+            _applicantaddress = value;
         }
     }
 
@@ -84,11 +83,11 @@ public class InventorClass : ConnectionClass
     {
         get
         {
-            return _inventormobileno;
+            return _applicantmobileno;
         }
         set
         {
-            _inventormobileno = value;
+            _applicantmobileno = value;
         }
     }
 
@@ -96,17 +95,16 @@ public class InventorClass : ConnectionClass
     {
         get
         {
-            return _inventoremailid;
+            return _applicantemailid;
         }
         set
         {
-            _inventoremailid = value;
+            _applicantemailid = value;
         }
     }
 
 
     #endregion
 
-   
-    
+  
 }

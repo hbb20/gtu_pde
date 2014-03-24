@@ -13,7 +13,6 @@ namespace gtu_pde
         {
 
         }
-<<<<<<< HEAD
         protected void btnLogin_Click(object sender, EventArgs e)
         {
 
@@ -38,7 +37,4 @@ namespace gtu_pde
 
         }
 }
-=======
-    }
->>>>>>> 488ced1386637b0ae4b8ae598cc2b9692dd6beb3
 }

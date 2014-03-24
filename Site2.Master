@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="gtu_pde.Site2" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site2.master.cs" Inherits="gtu_pde.Site2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -11,146 +11,50 @@
 <meta name="keywords" content="free css templates, education, school, college, university" />
 <meta name="description" content="Education template is for academic related websites" />
 <link href="gtu_acpc/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #templatemo_footer_wrapper
+        {
+            height: 80px;
+            width: 983px;
+        }
+        .menu_button
+        { text-decoration:"Underline";
+        }
+        .menu_button:hover
+        {
+       
+            letter-spacing:2px;
+            
+        }
+    </style>
 </head>
-<body><div id="content"></div>
+<body>
+
 <div id="templatemo_header_wrapper">
-    <img src="gtu_acpc/images/GTU%20Logonew.1jpg - Copy.jpg" alt=""/>
+   <img src="gtu_acpc/images/GTU%20Logonew.1jpg%20-%20Copy.jpg" />
     
 </div> 
 
-<div id="templatemo_menu_wrapper" >
+<div id="templatemo_menu_wrapper" align="center" >
     <div id="templatemo_menu">
         
         <ul>
-            <li><a href="#" target="_parent">Home</a></li>
-            <li><a href="#" target="_parent">Project Details</a></li>
-            <li><a href="#" target="_parent">PDE</a></li>
-            <li><a href="#" target="_parent">Members</a></li>
-            <li><a href="#">Logout</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a class="menu_button" href="Home.aspx" target="_parent">Home</a></li>
+            <li><a class="menu_button"  href="Project_Details.aspx" target="_parent">Project Details</a></li>
+            <li><a class="menu_button" href="form1.aspx" target="_parent">PDE</a></li>
+            <li><a class="menu_button" href="Member.aspx" target="_parent">Members</a></li>
+            <li><a class="menu_button" href="#">Logout</a></li>
+            <li><a class="menu_button" href="#">Contact us</a></li>
         </ul>    	
     
     </div> <!-- end of templatemo_menu -->
 </div>
 
-<div id="templatemo_content_wrapper">
+   <div align="center">
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-    
-	<div id="templatemo_sidebar">
-    
-    	<div class="sidebar_box">
-        	
-            <h2>Announcements</h2>
-            
-            <div class="news_box">
-                <a href="#">Fusce sit amet nunc lectus, at pretium augue. Pellentesque tortor felis.</a>
-                <p class="post_info">Posted by <a href="#">Admin</a> on <span>April 30, 2048</span></p>
-            </div>
-            
-            <div class="news_box">
-                <a href="#">Integer imperdiet, justo ut venenatis vehicula, magna mi placerat felis.</a>
-                <p class="post_info">Posted by <a href="#">Admin</a> on <span>April 22, 2048</span></p>
-            </div>
-            
-            <div class="news_box">
-                <a href="#">Sed justo dolor, convallis at, vestibulum vitae, elementum eu, pede.</a>
-                <p class="post_info">Posted by <a href="#">Admin</a> on <span>April 14, 2048</span></p>
-            </div>
-        
-        </div><div class="sidebar_box_bottom"></div>
-        
-        <div class="sidebar_box">
-			
-            <h2>Newsletter</h2>
-            
-            <form action="#" method="get">
-            <label>Please enter your email address to subscribe our newsletter.</label>
-            <input type="text" value="" name="username" size="10" id="input_field" title="usernmae" />
-            <input type="submit" name="login" value="Subscribe" alt="login" id="submit_btn" title="Login" />
-            </form>
-            
-            <div class="cleaner"></div>
-        
-        </div><div class="sidebar_box_bottom"></div>
-    
-    </div></asp:ContentPlaceHolder> <!-- end of sidebar -->
-    
-    <div id="templatemo_content">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-        
-    	<div class="content_box">
-        
-        	<h2>Welcome to GTU</h2>
-            
-            <p> Free Website Templates are provided by <a href="http://facebook-templates.net/" target="_parent">Facebook Templates</a> for everyone. You may download, edit and apply this template for your websites. Nam ut libero at lacus feugiat tincidunt vitae sed ipsum.</p>
-            
-          <div class="cleaner_h20"></div>
-            
-            <div class="image_fl">
-	   for everyone. You may download, edit and apply this template for your websites. Nam ut libero at lacus feugiat tincidunt vitae sed ipsum.</p>
-                <div class="cleaner_h20">
-                </div>
-                <div class="image_fl">
-&nbsp;</div>
-                <div class="section_w250 float_r">
-                    <ul class="list_01">
-                        <li>Praesent condimentum magna ut agittis sem, ut </li>
-                      <li>Nunc luctus eros eu enim gravida ut </li>
-                      <li>Phasellus nec ante eget felis </li>
-              </ul>
-            
-            </div>
-        
-        	<div class="cleaner"></div>
-    
-        </div></asp:ContentPlaceHolder><div class="content_box_bottom"></div>
-        
-        <div class="content_box">
-        
-        	<h2>Testimonial</h2>
-            
-            <div class="section_w250 float_l">
-				<h3>Praesent sollicitudin</h3>            
-				<p>Nullam faucibus volutpat sapien sit amet tristique. Suspendisse venenatis, urna nec rhoncus suscipit, turpis turpis auctor nisi.</p>
-            
-            </div>  
-            
-            <div class="section_w250 float_r">
-				<h3>Quisque blandit</h3>            
-				<p>Morbi blandit ipsum sed purus vestibulum bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nibh sed tellus.</p>
-            
-            </div>            
-           
-        
-        	<div class="cleaner"></div>
-        </div><div class="content_box_bottom"></div>
-    
-    </div> <!-- end of content -->
-    
-    <div class="cleaner"></div>
-
-</div>
-
-<div id="templatemo_footer_wrapper">
-
-    <div id="templatemo_footer">
-    
-        <ul class="footer_menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#" target="_parent">Project Details</a></li>
-                    <li><a href="#" target="_parent">PDE</a></li>
-                    <li><a href="#" target="_parent">Members</a></li>
-                    <li><a href="#">Logout</a></li>
-                   <li class="last_menu"><a href="#">Contact Us</a></li>
-                </ul>
-                
-                Copyright © 2048 <a href="#">Your Company Name</a> | 
-                Designed by <a href="http://facebook-templates.net/" target="_parent">Facebook FBML Templates</a> | 
-                Validate <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
    
-
- </div>
-    
+    </asp:ContentPlaceHolder>
 </div>
+
 </body>
 </html>

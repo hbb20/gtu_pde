@@ -1,7 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="gtu_pde.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="gtu_pde.login" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script runat="server">
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
@@ -58,59 +69,63 @@
                 <table cellspacing="20px" cellpadding="20px">
                 <tr>
                 <td class="style2">
-                    &nbsp;</td>
+                    &nbsp;<asp:Label ID="Label1" runat="server" ForeColor="#990000" Text="Team ID"></asp:Label>
+                    </td>
                 <td class="style1">
                     <asp:TextBox ID="txtteamid" placeholder="Teamid" runat="server" Height="40px" Width="235px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtteamid" ErrorMessage="*" ValidationGroup="submitbtn"></asp:RequiredFieldValidator>
                     </td>
-                    <td style="padding-left: 10px" valign="top">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                            ErrorMessage="Enter Team Id" ControlToValidate="txtteamid"></asp:RequiredFieldValidator>
-                    </td>
+                    
                 </tr>
                 <tr>
                 <td class="style2">
-                    &nbsp;</td>
+                    &nbsp;<asp:Label ID="Label2" runat="server" ForeColor="#990000" Text="Username"></asp:Label>
+                    </td>
                 <td class="style1">
                     <asp:TextBox ID="txtusername" placeholder="Username" runat="server" Height="40px" Width="235px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txtusername" ErrorMessage="*" ValidationGroup="submitbtn"></asp:RequiredFieldValidator>
                     </td>
-                    <td style="padding-left: 10px" valign="top">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                            ErrorMessage="Enter Username" ControlToValidate="txtusername"></asp:RequiredFieldValidator>
-                    </td>
+                    
                 </tr>
                 <tr>
                 <td class="style2">
+                     <asp:Label ID="Label3" runat="server" ForeColor="#990000" Text="Password"></asp:Label>
                      </td>
                 <td class="style1">
                    <asp:TextBox ID="txtpswd" placeholder="Password" runat="server" Height="40px" Width="235px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                        ControlToValidate="txtpswd" ErrorMessage="*" ValidationGroup="submitbtn"></asp:RequiredFieldValidator>
                    </td>
-                   <td style="padding-left: 10px" valign="top">
-                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                           ErrorMessage="Enter Password" ControlToValidate="txtpswd"></asp:RequiredFieldValidator>
-                   </td>
+                   
                     
                 </tr>
                 
                 </table>
                 <center>
-<<<<<<< HEAD
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
-                        onclick="btnLogin_Click" PostBackUrl="~/form1.aspx" /></center>
-=======
                     <asp:Button ID="btnLogin" runat="server" Text="Submit" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
-                        <br />
->>>>>>> 488ced1386637b0ae4b8ae598cc2b9692dd6beb3
-                        <br />
-            
-			</form>
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
+                        onclick="btnLogin_Click" ValidationGroup="submitbtn" />
+                        </center><br />
+                        
+                        <asp:LinkButton ID="lnkbtnForgotPassword" runat="server" Font-Bold="True" 
+                        Font-Size="13px" ForeColor="#990000" PostBackUrl="~/Forgotpswd.aspx">Forgot Password</asp:LinkButton><br />
+                        <asp:LinkButton ID="lnkbtnSignUp" runat="server" Font-Bold="True" 
+                        Font-Size="15px" ForeColor="#006600" PostBackUrl="~/teamregister.aspx">Sign Up</asp:LinkButton>
+                        
+            			</form>
 		</div>
 
 	
 	
-		<p class="forgot"><a href="Forgotpswd.aspx">Forgot your password? </a>Click here to reset it.</p>
-
+		
 
 	</div><!-- container -->
 

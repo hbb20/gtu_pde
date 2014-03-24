@@ -23,7 +23,9 @@
     margin: 0 0 0 2px;
     padding: 0;
     font-size: 100%;
-		vertical-align: baseline; }
+		vertical-align: baseline;
+    font-weight: 700;
+}
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block; }
 	body {

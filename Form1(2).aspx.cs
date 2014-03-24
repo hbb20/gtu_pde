@@ -13,5 +13,9 @@ namespace gtu_pde
         {
 
         }
-    }
+        protected void btnsubmit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Form2.aspx");
+        }
+}
 }

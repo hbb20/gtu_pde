@@ -1,544 +1,262 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Collections.Specialized;
+using System.Text;
+using System.Data.SqlClient;
 
 namespace gtu_pde
 {
+
     public partial class form1 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+       
+    private void SetInitialRow()
+    {
+        DataTable dt = new DataTable();
+        DataRow dr = null;
+        dt.Columns.Add(new DataColumn("FullName", typeof(string)));
+        dt.Columns.Add(new DataColumn("Nationality", typeof(string)));
+        dt.Columns.Add(new DataColumn("Address", typeof(string)));
+        dt.Columns.Add(new DataColumn("EmailId", typeof(string)));
+        dt.Columns.Add(new DataColumn("ContactNo", typeof(string)));
+        dr = dt.NewRow();
+        dr["FullName"] = string.Empty;
+        dr["Nationality"] = string.Empty;
+        dr["Address"] = string.Empty;
+        dr["EmailId"] = string.Empty;
+        dr["ContactNo"] = string.Empty;
+        dt.Rows.Add(dr);
+        
+
+        //Store the DataTable in ViewState
+        ViewState["CurrentTable"] = dt;
+
+        Gridview1.DataSource = dt;
+        Gridview1.DataBind();
+    }
+    private void AddNewRowToGrid()
+    {
+        int rowIndex = 0;
+
+        if (ViewState["CurrentTable"] != null)
         {
-<<<<<<< HEAD
-            active = Color.White;
-            passive = Color.WhiteSmoke;
-            txtApplicantfullname1.Focus();
-            if (!chk_box_mem_2.Checked)
-                change_applicant_color(txtapplicantfullname2, txtApplicantNationality2, txtApplicantaddress2, txtApplicantcontactno2, txtApplicantemailid2, passive);
-            if (!chk_box_mem_3.Checked)
-                change_applicant_color(txtapplicantfullname3, txtApplicantNationality3, txtApplicantaddress3, txtApplicantcontactno3, txtApplicantemailid3, passive);
-            if (!chk_box_mem_4.Checked)
-                change_applicant_color(txtapplicantfullname4, txtApplicantNationality4, txtApplicantaddress4, txtApplicantcontactno4, txtApplicantemailid4, passive);
-            if (!chk_box_mem_5.Checked)
-                change_applicant_color(txtapplicantfullname5, txtApplicantNationality5, txtApplicantaddress5, txtApplicantcontactno5, txtApplicantemailid5, passive);
+            DataTable dtCurrentTable = (DataTable)ViewState["CurrentTable"];
+            DataRow drCurrentRow = null;
+            if (dtCurrentTable.Rows.Count > 0)
+            {
+                for (int i = 1; i <= dtCurrentTable.Rows.Count; i++)
+                {
+                    //extract the TextBox values
+                    TextBox box1 = (TextBox)Gridview1.Rows[rowIndex].Cells[1].FindControl("TextBox1");
+                    TextBox box2 = (TextBox)Gridview1.Rows[rowIndex].Cells[2].FindControl("TextBox2");
+                    TextBox box3 = (TextBox)Gridview1.Rows[rowIndex].Cells[3].FindControl("TextBox3");
+                    TextBox box4 = (TextBox)Gridview1.Rows[rowIndex].Cells[4].FindControl("TextBox4");
+                    TextBox box5 = (TextBox)Gridview1.Rows[rowIndex].Cells[5].FindControl("TextBox5");
 
+                    drCurrentRow = dtCurrentTable.NewRow();
 
+                    drCurrentRow["FullName"] = box1.Text;
+                    drCurrentRow["Nationality"] = box2.Text;
+                    drCurrentRow["Address"] = box3.Text;
+                    drCurrentRow["EmailId"] = box4.Text;
+                    drCurrentRow["ContactNo"] = box5.Text;
 
+                    rowIndex++;
+                }
+                dtCurrentTable.Rows.Add(drCurrentRow);
+                ViewState["CurrentTable"] = dtCurrentTable;
 
-            if (!chk_box_Inventor_2.Checked)
-                change_Inventor_color(txtInventorfullname2, txtInventorNationality2, txtInventoraddress2, txtInventorcontactno2, txtInventoremailid2, passive);
-            if (!chk_box_Inventor_3.Checked)
-                change_Inventor_color(txtInventorfullname3, txtInventorNationality3, txtInventoraddress3, txtInventorcontactno3, txtInventoremailid3, passive);
-            if (!chk_box_Inventor_4.Checked)
-                change_Inventor_color(txtInventorfullname4, txtInventorNationality4, txtInventoraddress4, txtInventorcontactno4, txtInventoremailid4, passive);
-            if (!chk_box_Inventor_5.Checked)
-                change_Inventor_color(txtInventorfullname5, txtInventorNationality5, txtInventoraddress5, txtInventorcontactno5, txtInventoremailid5, passive);
+                Gridview1.DataSource = dtCurrentTable;
+                Gridview1.DataBind();
+            }
+        }
+        else
+        {
+            Response.Write("ViewState is null");
+        }
+
+        //Set Previous Data on Postbacks
+        SetPreviousData();
+    }
+    private void SetPreviousData()
+    {
+        int rowIndex = 0;
+        if (ViewState["CurrentTable"] != null)
+        {
+            DataTable dt = (DataTable)ViewState["CurrentTable"];
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 1; i < dt.Rows.Count; i++)
+                {
+                    TextBox box1 = (TextBox)Gridview1.Rows[rowIndex].Cells[1].FindControl("TextBox1");
+                    TextBox box2 = (TextBox)Gridview1.Rows[rowIndex].Cells[2].FindControl("TextBox2");
+                    TextBox box3 = (TextBox)Gridview1.Rows[rowIndex].Cells[3].FindControl("TextBox3");
+                    TextBox box4 = (TextBox)Gridview1.Rows[rowIndex].Cells[4].FindControl("TextBox4");
+                    TextBox box5 = (TextBox)Gridview1.Rows[rowIndex].Cells[5].FindControl("TextBox5");
+                    box1.Text = dt.Rows[i]["FullName"].ToString();
+                    box2.Text = dt.Rows[i]["Nationality"].ToString();
+                    box3.Text = dt.Rows[i]["Address"].ToString();
+                    box4.Text = dt.Rows[i]["EmailId"].ToString();
+                    box5.Text = dt.Rows[i]["ContactNo"].ToString();
+
+                    rowIndex++;
+
+                }
+            }
+            // ViewState["CurrentTable"] = dt;
 
         }
-        //protected void btn_add_row2_Click(object sender, EventArgs e)
-        //{
-        //    txtApplicantaddress2.Visible = true;
-        //    txtApplicantNationality2.Visible = true;
-        //    txtapplicantfullname2.Visible = true;
-        //    txtcontactno2.Visible = true;
-        //    txtemailid2.Visible = true;
+    }
 
-        //}
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+            SetInitialRow();
+        }
+    }
+    protected void ButtonAdd_Click(object sender, EventArgs e)
+    {
+        AddNewRowToGrid();
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        int rowIndex = 0;
+        StringCollection sc = new StringCollection();
+        if (ViewState["CurrentTable"] != null)
+        {
+            DataTable dtCurrentTable = (DataTable)ViewState["CurrentTable"];
+            if (dtCurrentTable.Rows.Count > 0)
+            {
+                for (int i = 1; i <= dtCurrentTable.Rows.Count; i++)
+                {
+                    //extract the TextBox values
+                    TextBox box1 = (TextBox)Gridview1.Rows[rowIndex].Cells[1].FindControl("TextBox1");
+                    TextBox box2 = (TextBox)Gridview1.Rows[rowIndex].Cells[2].FindControl("TextBox2");
+                    TextBox box3 = (TextBox)Gridview1.Rows[rowIndex].Cells[3].FindControl("TextBox3");
+                    TextBox box4 = (TextBox)Gridview1.Rows[rowIndex].Cells[4].FindControl("TextBox4");
+                    TextBox box5 = (TextBox)Gridview1.Rows[rowIndex].Cells[5].FindControl("TextBox5");
+                    //get the values from the TextBoxes
+                    //then add it to the collections with a comma "," as the delimited values
+                    sc.Add(box1.Text + "," + box2.Text + "," + box3.Text+","+box4.Text+","+box5.Text);
+                    rowIndex++;
+                }
+                //Call the method for executing inserts
+                InsertRecords(sc);
+            }
+        }
+    }
+    //A method that returns a string which calls the connection string from the web.config
+    private string GetConnectionString()
+    {
+        //"DBConnection" is the name of the Connection String
+        //that was set up from the web.config file
+        return System.Configuration.ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+    }
+    //A method that Inserts the records to the database
+    private void InsertRecords(StringCollection sc)
+    {
+        SqlConnection conn = new SqlConnection(GetConnectionString());
+        StringBuilder sb = new StringBuilder(string.Empty);
+        string[] splitItems = null;
+        foreach (string item in sc)
+        {
 
-    
+            const string sqlStatement = "INSERT INTO SampleTable (FullName,Nationality,Address,EmailId,ContactNo) VALUES";
+            if (item.Contains(","))
+            {
+                splitItems = item.Split(",".ToCharArray());
+                sb.AppendFormat("{0}('{1}','{2}','{3}','{4}','{5}'); ", sqlStatement, splitItems[0], splitItems[1], splitItems[2], splitItems[3], splitItems[4]);
+            }
 
+        }
 
+        try
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
 
+            Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Script", "alert('Records Successfuly Saved!');", true);
+
+        }
+        catch (System.Data.SqlClient.SqlException ex)
+        {
+            string msg = "Insert Error:";
+            msg += ex.Message;
+            throw new Exception(msg);
+
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+    // Hide the Remove Button at the last row of the GridView
+    protected void Gridview1_RowCreated(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+              DataTable  dt = (DataTable)ViewState["CurrentTable"];
+              LinkButton lb = (LinkButton)e.Row.FindControl("LinkButton1");
+              if (lb != null)
+              {
+                  if (dt.Rows.Count > 1)
+                  {
+                      if (e.Row.RowIndex == dt.Rows.Count - 1)
+                      {
+                          lb.Visible = false;
+                      }
+                  }
+                  else
+                  {
+                      lb.Visible = false;
+                  }
+              }
+        }
+    }
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        LinkButton lb = (LinkButton)sender;
+        GridViewRow gvRow = (GridViewRow) lb.NamingContainer;
+        int rowID = gvRow.RowIndex + 1;
+        if (ViewState["CurrentTable"] != null)
+        {
+          DataTable  dt = (DataTable)ViewState["CurrentTable"];
+          if (dt.Rows.Count > 1)
+          {
+              if (gvRow.RowIndex < dt.Rows.Count -1)
+              {
+                  //Remove the Selected Row data
+                  dt.Rows.Remove(dt.Rows[rowID]);
+              }
+          }
+            //Store the current data in ViewState for future reference
+            ViewState["CurrentTable"] = dt;
+            //Re bind the GridView for the updated data
+            Gridview1.DataSource = dt;
+            Gridview1.DataBind();
+        }
+
+        //Set Previous Data on Postbacks
+        SetPreviousData();
+    }
         protected void btn_next_form_Click(object sender, EventArgs e)
         {
             Response.Redirect("Form1(2).aspx");
         }
-        protected void chk_box_mem_2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_mem_2.Checked == true)
-            {
-                change_applicant_color(txtapplicantfullname2, txtApplicantNationality2, txtApplicantaddress2, txtApplicantcontactno2, txtApplicantemailid2, active);
-                txtapplicantfullname2.ReadOnly = false;
-                txtApplicantcontactno2.ReadOnly = false;
-                txtApplicantemailid2.ReadOnly = false;
-                txtApplicantNationality2.ReadOnly = false;
-                txtApplicantaddress2.ReadOnly = false;
-                txtapplicantfullname2.Focus();
 
-            }
-            else
-            {
-                if (chk_box_mem_3.Checked == true)
-                {
-                    copy_applicant_row(txtapplicantfullname2, txtApplicantNationality2, txtApplicantaddress2, txtApplicantemailid2, txtApplicantcontactno2, txtapplicantfullname3, txtApplicantNationality3, txtApplicantaddress3, txtApplicantemailid3, txtApplicantcontactno3);
-                    chk_box_mem_2.Checked = true;
-                    chk_box_mem_2_CheckedChanged(this, null);
-                    chk_box_mem_3.Checked = false;
-                    chk_box_mem_3_CheckedChanged(this, null);
-
-                    return;
-                }
-
-                change_applicant_color(txtapplicantfullname2, txtApplicantNationality2, txtApplicantaddress2, txtApplicantcontactno2, txtApplicantemailid2, passive);
-
-                txtapplicantfullname2.ReadOnly = true;
-                txtApplicantcontactno2.ReadOnly = true;
-                txtApplicantemailid2.ReadOnly = true;
-                txtApplicantNationality2.ReadOnly = true;
-                txtApplicantaddress2.ReadOnly = true;
-=======
->>>>>>> 488ced1386637b0ae4b8ae598cc2b9692dd6beb3
-
-        }
-<<<<<<< HEAD
-
-        protected void change_applicant_color(TextBox t1, TextBox t2, TextBox t3, TextBox t4, TextBox t5, Color c)
-        {
-            t1.BackColor = c;
-            t2.BackColor = c;
-            t3.BackColor = c;
-            t4.BackColor = c;
-            t5.BackColor = c;
-            if (c == active)
-            {
-                t1.CssClass = "txt_active";
-                t2.CssClass = "txt_active";
-                t3.CssClass = "txt_active";
-                t4.CssClass = "txt_active";
-                t5.CssClass = "txt_active";
-
-            }
-            else
-            {
-                t1.CssClass =null; 
-                t2.CssClass = null;
-                t3.CssClass = null;
-                t4.CssClass = null;
-                t5.CssClass = null;
-            }
-
-        }
-        protected void chk_box_mem_3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_mem_3.Checked == true)
-            {
-                if (chk_box_mem_2.Checked == false)
-                {
-                    chk_box_mem_2.Checked = true;
-                    chk_box_mem_2_CheckedChanged(this, null);
-                    chk_box_mem_3.Checked = false;
-
-                    return;
-                }
-                change_applicant_color(txtapplicantfullname3, txtApplicantNationality3, txtApplicantaddress3, txtApplicantcontactno3, txtApplicantemailid3, active);
-                txtapplicantfullname3.ReadOnly = false;
-                txtApplicantcontactno3.ReadOnly = false;
-                txtApplicantemailid3.ReadOnly = false;
-                txtApplicantNationality3.ReadOnly = false;
-                txtApplicantaddress3.ReadOnly = false;
-                txtapplicantfullname3.Focus();
-
-
-            }
-            else
-            {
-                if (chk_box_mem_4.Checked == true)
-                {
-                    copy_applicant_row(txtapplicantfullname3, txtApplicantNationality3, txtApplicantaddress3, txtApplicantemailid3, txtApplicantcontactno3, txtapplicantfullname4, txtApplicantNationality4, txtApplicantaddress4, txtApplicantemailid4, txtApplicantcontactno4);
-                    chk_box_mem_3.Checked = true;
-                    chk_box_mem_3_CheckedChanged(this, null);
-                    chk_box_mem_4.Checked = false;
-                    chk_box_mem_4_CheckedChanged(this, null);
-
-                    return;
-                }
-
-
-                change_applicant_color(txtapplicantfullname3, txtApplicantNationality3, txtApplicantaddress3, txtApplicantcontactno3, txtApplicantemailid3, passive);
-                txtapplicantfullname3.ReadOnly = true;
-                txtApplicantcontactno3.ReadOnly = true;
-                txtApplicantemailid3.ReadOnly = true;
-                txtApplicantNationality3.ReadOnly = true;
-                txtApplicantaddress3.ReadOnly = true;
-
-                txtapplicantfullname3.Text = "";
-                txtApplicantcontactno3.Text = "";
-                txtApplicantemailid3.Text = "";
-                txtApplicantNationality3.Text = "";
-                txtApplicantaddress3.Text = "";
-            }
-        }
-
-        protected void chk_box_mem_4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_mem_4.Checked == true)
-            {
-                if (chk_box_mem_2.Checked == false)
-                {
-                    chk_box_mem_2.Checked = true;
-                    chk_box_mem_2_CheckedChanged(this, null);
-                    chk_box_mem_4.Checked = false;
-
-                    return;
-                }
-
-                else if (chk_box_mem_3.Checked == false)
-                {
-                    chk_box_mem_3.Checked = true;
-                    chk_box_mem_3_CheckedChanged(this, null);
-                    chk_box_mem_4.Checked = false;
-
-                    return;
-                }
-                change_applicant_color(txtapplicantfullname4, txtApplicantNationality4, txtApplicantaddress4, txtApplicantcontactno4, txtApplicantemailid4, active);
-                txtapplicantfullname4.ReadOnly = false;
-                txtApplicantcontactno4.ReadOnly = false;
-                txtApplicantemailid4.ReadOnly = false;
-                txtApplicantNationality4.ReadOnly = false;
-                txtApplicantaddress4.ReadOnly = false;
-                txtapplicantfullname4.Focus();
-            }
-            else
-            {
-
-                if (chk_box_mem_5.Checked == true)
-                {
-                    copy_applicant_row(txtapplicantfullname4, txtApplicantNationality4, txtApplicantaddress4, txtApplicantemailid4, txtApplicantcontactno4, txtapplicantfullname5, txtApplicantNationality5, txtApplicantaddress5, txtApplicantemailid5, txtApplicantcontactno5);
-                    chk_box_mem_4.Checked = true;
-                    chk_box_mem_4_CheckedChanged(this, null);
-                    chk_box_mem_5.Checked = false;
-                    chk_box_mem_5_CheckedChanged(this, null);
-
-                    return;
-                }
-
-
-                change_applicant_color(txtapplicantfullname4, txtApplicantNationality4, txtApplicantaddress4, txtApplicantcontactno4, txtApplicantemailid4, passive);
-                txtapplicantfullname4.ReadOnly = true;
-                txtApplicantcontactno4.ReadOnly = true;
-                txtApplicantemailid4.ReadOnly = true;
-                txtApplicantNationality4.ReadOnly = true;
-                txtApplicantaddress4.ReadOnly = true;
-
-                txtapplicantfullname4.Text = "";
-                txtApplicantcontactno4.Text = "";
-                txtApplicantemailid4.Text = "";
-                txtApplicantNationality4.Text = "";
-                txtApplicantaddress4.Text = "";
-            }
-        }
-
-        private void copy_applicant_row(TextBox t1, TextBox t2, TextBox t3, TextBox t4, TextBox t5, TextBox s1, TextBox s2, TextBox s3, TextBox s4, TextBox s5)
-        {
-            t1.Text = s1.Text;
-            t2.Text = s2.Text;
-            t3.Text = s3.Text;
-            t4.Text = s4.Text;
-            t5.Text = s5.Text;
-
-        }
-        protected void chk_box_mem_5_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_mem_5.Checked == true)
-            {
-                if (chk_box_mem_2.Checked == false)
-                {
-                    chk_box_mem_2.Checked = true;
-                    chk_box_mem_2_CheckedChanged(this, null);
-                    chk_box_mem_5.Checked = false;
-
-                    return;
-                }
-
-                else if (chk_box_mem_3.Checked == false)
-                {
-                    chk_box_mem_3.Checked = true;
-                    chk_box_mem_3_CheckedChanged(this, null);
-                    chk_box_mem_5.Checked = false;
-
-                    return;
-                }
-
-                else if (chk_box_mem_4.Checked == false)
-                {
-                    chk_box_mem_4.Checked = true;
-                    chk_box_mem_4_CheckedChanged(this, null);
-                    chk_box_mem_5.Checked = false;
-
-                    return;
-                }
-                change_applicant_color(txtapplicantfullname5, txtApplicantNationality5, txtApplicantaddress5, txtApplicantcontactno5, txtApplicantemailid5, active);
-                txtapplicantfullname5.ReadOnly = false;
-                txtApplicantcontactno5.ReadOnly = false;
-                txtApplicantemailid5.ReadOnly = false;
-                txtApplicantNationality5.ReadOnly = false;
-                txtApplicantaddress5.ReadOnly = false;
-                txtapplicantfullname5.Focus();
-            }
-            else
-            {
-                change_applicant_color(txtapplicantfullname5, txtApplicantNationality5, txtApplicantaddress5, txtApplicantcontactno5, txtApplicantemailid5, passive);
-                txtapplicantfullname5.ReadOnly = true;
-                txtApplicantcontactno5.ReadOnly = true;
-                txtApplicantemailid5.ReadOnly = true;
-                txtApplicantNationality5.ReadOnly = true;
-                txtApplicantaddress5.ReadOnly = true;
-
-                txtapplicantfullname5.Text = "";
-                txtApplicantcontactno5.Text = "";
-                txtApplicantemailid5.Text = "";
-                txtApplicantNationality5.Text = "";
-                txtApplicantaddress5.Text = "";
-            }
-        }
-
-
-        protected void chk_box_Inventor_2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_Inventor_2.Checked == true)
-            {
-                change_Inventor_color(txtInventorfullname2, txtInventorNationality2, txtInventoraddress2, txtInventorcontactno2, txtInventoremailid2, active);
-                txtInventorfullname2.ReadOnly = false;
-                txtInventorcontactno2.ReadOnly = false;
-                txtInventoremailid2.ReadOnly = false;
-                txtInventorNationality2.ReadOnly = false;
-                txtInventoraddress2.ReadOnly = false;
-                txtInventorfullname2.Focus();
-            }
-            else
-            {
-                if (chk_box_Inventor_3.Checked == true)
-                {
-                    copy_Inventor_row(txtInventorfullname2, txtInventorNationality2, txtInventoraddress2, txtInventoremailid2, txtInventorcontactno2, txtInventorfullname3, txtInventorNationality3, txtInventoraddress3, txtInventoremailid3, txtInventorcontactno3);
-                    chk_box_Inventor_2.Checked = true;
-                    chk_box_Inventor_2_CheckedChanged(this, null);
-                    chk_box_Inventor_3.Checked = false;
-                    chk_box_Inventor_3_CheckedChanged(this, null);
-
-                    return;
-                }
-
-                change_Inventor_color(txtInventorfullname2, txtInventorNationality2, txtInventoraddress2, txtInventorcontactno2, txtInventoremailid2, passive);
-                txtInventorfullname2.ReadOnly = true;
-                txtInventorcontactno2.ReadOnly = true;
-                txtInventoremailid2.ReadOnly = true;
-                txtInventorNationality2.ReadOnly = true;
-                txtInventoraddress2.ReadOnly = true;
-
-                txtInventorfullname2.Text = "";
-                txtInventorcontactno2.Text = "";
-                txtInventoremailid2.Text = "";
-                txtInventorNationality2.Text = "";
-                txtInventoraddress2.Text = "";
-            }
-        }
-
-        protected void change_Inventor_color(TextBox t1, TextBox t2, TextBox t3, TextBox t4, TextBox t5, Color c)
-        {
-            t1.BackColor = c;
-            t2.BackColor = c;
-            t3.BackColor = c;
-            t4.BackColor = c;
-            t5.BackColor = c;
-
-            if (c == active)
-            {
-                t1.CssClass = "txt_active";
-                t2.CssClass = "txt_active";
-                t3.CssClass = "txt_active";
-                t4.CssClass = "txt_active";
-                t5.CssClass = "txt_active";
-
-            }
-            else
-            {
-                t1.CssClass = null;
-                t2.CssClass = null;
-                t3.CssClass = null;
-                t4.CssClass = null;
-                t5.CssClass = null;
-            }
-
-        }
-        protected void chk_box_Inventor_3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_Inventor_3.Checked == true)
-            {
-                if (chk_box_Inventor_2.Checked == false)
-                {
-                    chk_box_Inventor_2.Checked = true;
-                    chk_box_Inventor_2_CheckedChanged(this, null);
-                    chk_box_Inventor_3.Checked = false;
-
-                    return;
-                }
-                change_Inventor_color(txtInventorfullname3, txtInventorNationality3, txtInventoraddress3, txtInventorcontactno3, txtInventoremailid3, active);
-                txtInventorfullname3.ReadOnly = false;
-                txtInventorcontactno3.ReadOnly = false;
-                txtInventoremailid3.ReadOnly = false;
-                txtInventorNationality3.ReadOnly = false;
-                txtInventoraddress3.ReadOnly = false;
-                txtInventorfullname3.Focus();
-            }
-            else
-            {
-                if (chk_box_Inventor_4.Checked == true)
-                {
-                    copy_Inventor_row(txtInventorfullname3, txtInventorNationality3, txtInventoraddress3, txtInventoremailid3, txtInventorcontactno3, txtInventorfullname4, txtInventorNationality4, txtInventoraddress4, txtInventoremailid4, txtInventorcontactno4);
-                    chk_box_Inventor_3.Checked = true;
-                    chk_box_Inventor_3_CheckedChanged(this, null);
-                    chk_box_Inventor_4.Checked = false;
-                    chk_box_Inventor_4_CheckedChanged(this, null);
-
-                    return;
-                }
-
-
-                change_Inventor_color(txtInventorfullname3, txtInventorNationality3, txtInventoraddress3, txtInventorcontactno3, txtInventoremailid3, passive);
-                txtInventorfullname3.ReadOnly = true;
-                txtInventorcontactno3.ReadOnly = true;
-                txtInventoremailid3.ReadOnly = true;
-                txtInventorNationality3.ReadOnly = true;
-                txtInventoraddress3.ReadOnly = true;
-
-                txtInventorfullname3.Text = "";
-                txtInventorcontactno3.Text = "";
-                txtInventoremailid3.Text = "";
-                txtInventorNationality3.Text = "";
-                txtInventoraddress3.Text = "";
-            }
-        }
-        protected void chk_box_Inventor_4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_Inventor_4.Checked == true)
-            {
-                if (chk_box_Inventor_2.Checked == false)
-                {
-                    chk_box_Inventor_2.Checked = true;
-                    chk_box_Inventor_2_CheckedChanged(this, null);
-                    chk_box_Inventor_4.Checked = false;
-
-                    return;
-                }
-
-                else if (chk_box_Inventor_3.Checked == false)
-                {
-                    chk_box_Inventor_3.Checked = true;
-                    chk_box_Inventor_3_CheckedChanged(this, null);
-                    chk_box_Inventor_4.Checked = false;
-
-                    return;
-                }
-                change_Inventor_color(txtInventorfullname4, txtInventorNationality4, txtInventoraddress4, txtInventorcontactno4, txtInventoremailid4, active);
-                txtInventorfullname4.ReadOnly = false;
-                txtInventorcontactno4.ReadOnly = false;
-                txtInventoremailid4.ReadOnly = false;
-                txtInventorNationality4.ReadOnly = false;
-                txtInventoraddress4.ReadOnly = false;
-                txtInventorfullname4.Focus();
-            }
-            else
-            {
-
-                if (chk_box_Inventor_5.Checked == true)
-                {
-                    copy_Inventor_row(txtInventorfullname4, txtInventorNationality4, txtInventoraddress4, txtInventoremailid4, txtInventorcontactno4, txtInventorfullname5, txtInventorNationality5, txtInventoraddress5, txtInventoremailid5, txtInventorcontactno5);
-                    chk_box_Inventor_4.Checked = true;
-                    chk_box_Inventor_4_CheckedChanged(this, null);
-                    chk_box_Inventor_5.Checked = false;
-                    chk_box_Inventor_5_CheckedChanged(this, null);
-
-                    return;
-                }
-
-
-                change_Inventor_color(txtInventorfullname4, txtInventorNationality4, txtInventoraddress4, txtInventorcontactno4, txtInventoremailid4, passive);
-                txtInventorfullname4.ReadOnly = true;
-                txtInventorcontactno4.ReadOnly = true;
-                txtInventoremailid4.ReadOnly = true;
-                txtInventorNationality4.ReadOnly = true;
-                txtInventoraddress4.ReadOnly = true;
-
-                txtInventorfullname4.Text = "";
-                txtInventorcontactno4.Text = "";
-                txtInventoremailid4.Text = "";
-                txtInventorNationality4.Text = "";
-                txtInventoraddress4.Text = "";
-            }
-        }
-
-        private void copy_Inventor_row(TextBox t1, TextBox t2, TextBox t3, TextBox t4, TextBox t5, TextBox s1, TextBox s2, TextBox s3, TextBox s4, TextBox s5)
-        {
-            t1.Text = s1.Text;
-            t2.Text = s2.Text;
-            t3.Text = s3.Text;
-            t4.Text = s4.Text;
-            t5.Text = s5.Text;
-
-        }
-        protected void chk_box_Inventor_5_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_box_Inventor_5.Checked == true)
-            {
-                if (chk_box_Inventor_2.Checked == false)
-                {
-                    chk_box_Inventor_2.Checked = true;
-                    chk_box_Inventor_2_CheckedChanged(this, null);
-                    chk_box_Inventor_5.Checked = false;
-
-                    return;
-                }
-
-                else if (chk_box_Inventor_3.Checked == false)
-                {
-                    chk_box_Inventor_3.Checked = true;
-                    chk_box_Inventor_3_CheckedChanged(this, null);
-                    chk_box_Inventor_5.Checked = false;
-
-                    return;
-                }
-
-                else if (chk_box_Inventor_4.Checked == false)
-                {
-                    chk_box_Inventor_4.Checked = true;
-                    chk_box_Inventor_4_CheckedChanged(this, null);
-                    chk_box_Inventor_5.Checked = false;
-
-                    return;
-                }
-                change_Inventor_color(txtInventorfullname5, txtInventorNationality5, txtInventoraddress5, txtInventorcontactno5, txtInventoremailid5, active);
-                txtInventorfullname5.ReadOnly = false;
-                txtInventorcontactno5.ReadOnly = false;
-                txtInventoremailid5.ReadOnly = false;
-                txtInventorNationality5.ReadOnly = false;
-                txtInventoraddress5.ReadOnly = false;
-                txtInventorfullname5.Focus();
-            }
-            else
-            {
-                change_Inventor_color(txtInventorfullname5, txtInventorNationality5, txtInventoraddress5, txtInventorcontactno5, txtInventoremailid5, passive);
-                txtInventorfullname5.ReadOnly = true;
-                txtInventorcontactno5.ReadOnly = true;
-                txtInventoremailid5.ReadOnly = true;
-                txtInventorNationality5.ReadOnly = true;
-                txtInventoraddress5.ReadOnly = true;
-
-                txtInventorfullname5.Text = "";
-                txtInventorcontactno5.Text = "";
-                txtInventoremailid5.Text = "";
-                txtInventorNationality5.Text = "";
-                txtInventoraddress5.Text = "";
-            }
-        }
-
-    
-
-
-    }
-
-=======
-    }
->>>>>>> 488ced1386637b0ae4b8ae598cc2b9692dd6beb3
+       
+}
 }

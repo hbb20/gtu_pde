@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Forgotpswd.aspx.cs" Inherits="gtu_pde.Forgotpswd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Forgotpswd.aspx.cs" Inherits="gtu_pde.Forgotpswd" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -60,29 +60,33 @@
                 <table cellspacing="20px" cellpadding="20px">
                 <tr>
                 <td class="style1">
-                    &nbsp;</td>
+                    <asp:Label ID="Label1" runat="server" ForeColor="#990000" Text="Team ID"></asp:Label>
+                    </td>
                 <td class="style2">
                     <asp:TextBox ID="txtteamid" placeholder="Teamid" runat="server" Height="40px" Width="235px"></asp:TextBox>
                     </td>
-                    <td>
-                          
+                    <td style="padding-left: 10px" valign="top">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ErrorMessage="*" ControlToValidate="txtteamid"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                <td class="style1">
+                <td class="style1" width="150px">
+                    <asp:Label ID="Label2" runat="server" ForeColor="#990000" Text="Username"></asp:Label>
                     </td>
-                <td class="style2">
+                <td class="style2" width="150px">
                     <asp:TextBox ID="txtusername" placeholder="Username" runat="server" Height="40px" Width="235px"></asp:TextBox>
                     </td>
                     <td style="padding-left: 10px" valign="top">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                            ErrorMessage="Enter Username" ControlToValidate="txtusername"></asp:RequiredFieldValidator>
+                            ErrorMessage="*" ControlToValidate="txtusername"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                <td class="style1">
+                <td class="style1" width="150px">
+                     <asp:Label ID="Label3" runat="server" ForeColor="#990000" Text="Security Ques."></asp:Label>
                      </td>
-                <td class="style2">
+                <td class="style2" width="150px">
                 <asp:DropDownList ID="ddlSecurityQuestion" runat="server" Height="20px" 
                            Width="250px">
                         <asp:ListItem Text="Select your security question" Value="0"></asp:ListItem>
@@ -99,28 +103,32 @@
                    <td></td>
                   </tr>
                 <tr>
-                <td>
+                <td width="150px">
+                    <asp:Label ID="Label4" runat="server" ForeColor="#990000" Text="Security Ans."></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtsecans" placeholder="Answer" runat="server" Height="40px" Width="235px"></asp:TextBox>
                 </td>
-                <td></td>
+                <td style="padding-left: 10px" valign="top">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                            ErrorMessage="*" ControlToValidate="txtsecans"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 
                 </table>
                 <center>
-                    <asp:Button ID="btnLogin" runat="server" Text="Get Your Password" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
+                    <asp:Button ID="btnGetPassword" runat="server" Text="Get Your Password" BackColor="#66FFFF"
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
+                        onclick="btnGetPassword_Click" /></center>
                        
-           <asp:Panel ID="Pnlforgotpswd" runat="server" Visible="false">
-                <asp:Label ID="lblforgotpswd" runat="server" Text="Label"></asp:Label>
+           <asp:Panel ID="Pnlforgotpswd" runat="server">
+                <asp:Label ID="lblforgotpswd" runat="server" Text="" ForeColor="#990000"></asp:Label>
             </asp:Panel>
 			</form>
 		</div>
 
 	
-		<p class="forgot">Forgot your password? <a href="">Click here to reset it.</a></p>
-
+		
 
 	</div><!-- container -->
 
