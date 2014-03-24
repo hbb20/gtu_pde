@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Forgotpswd.aspx.cs" Inherits="gtu_pde.Forgotpswd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Forgotpswd.aspx.cs" Inherits="gtu_pde.Forgotpswd" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -64,9 +64,8 @@
                 <td class="style2">
                     <asp:TextBox ID="txtteamid" placeholder="Teamid" runat="server" Height="40px" Width="235px"></asp:TextBox>
                     </td>
-                    <td style="padding-left: 10px" valign="top">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                            ErrorMessage="Enter Team Id" ControlToValidate="txtteamid"></asp:RequiredFieldValidator>
+                    <td>
+                          
                     </td>
                 </tr>
                 <tr>
@@ -105,26 +104,23 @@
                 <td>
                     <asp:TextBox ID="txtsecans" placeholder="Answer" runat="server" Height="40px" Width="235px"></asp:TextBox>
                 </td>
-                <td style="padding-left: 10px" valign="top">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                            ErrorMessage="Enter Answer" ControlToValidate="txtsecans"></asp:RequiredFieldValidator>
-                    </td>
+                <td></td>
                 </tr>
                 
                 </table>
                 <center>
-                    <asp:Button ID="btnGetPassword" runat="server" Text="Get Your Password" BackColor="#66FFFF"
-                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
-                        onclick="btnGetPassword_Click" /></center>
+                    <asp:Button ID="btnLogin" runat="server" Text="Get Your Password" BackColor="#66FFFF"
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
                        
            <asp:Panel ID="Pnlforgotpswd" runat="server" Visible="false">
-                <asp:Label ID="lblforgotpswd" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblforgotpswd" runat="server" Text="Label"></asp:Label>
             </asp:Panel>
 			</form>
 		</div>
 
 	
-		
+		<p class="forgot">Forgot your password? <a href="">Click here to reset it.</a></p>
+
 
 	</div><!-- container -->
 

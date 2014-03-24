@@ -4,16 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Drawing;
 
 namespace gtu_pde
 {
-
     public partial class form1 : System.Web.UI.Page
     {
-        Color active, passive;
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             active = Color.White;
             passive = Color.WhiteSmoke;
             txtApplicantfullname1.Focus();
@@ -90,14 +88,11 @@ namespace gtu_pde
                 txtApplicantemailid2.ReadOnly = true;
                 txtApplicantNationality2.ReadOnly = true;
                 txtApplicantaddress2.ReadOnly = true;
+=======
+>>>>>>> 488ced1386637b0ae4b8ae598cc2b9692dd6beb3
 
-                txtapplicantfullname2.Text = "";
-                txtApplicantcontactno2.Text = "";
-                txtApplicantemailid2.Text = "";
-                txtApplicantNationality2.Text = "";
-                txtApplicantaddress2.Text = "";
-            }
         }
+<<<<<<< HEAD
 
         protected void change_applicant_color(TextBox t1, TextBox t2, TextBox t3, TextBox t4, TextBox t5, Color c)
         {
@@ -543,4 +538,7 @@ namespace gtu_pde
 
     }
 
+=======
+    }
+>>>>>>> 488ced1386637b0ae4b8ae598cc2b9692dd6beb3
 }

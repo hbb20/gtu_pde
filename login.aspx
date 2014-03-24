@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="gtu_pde.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="gtu_pde.login" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -62,7 +62,10 @@
                 <td class="style1">
                     <asp:TextBox ID="txtteamid" placeholder="Teamid" runat="server" Height="40px" Width="235px"></asp:TextBox>
                     </td>
-                    
+                    <td style="padding-left: 10px" valign="top">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ErrorMessage="Enter Team Id" ControlToValidate="txtteamid"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                 <td class="style2">
@@ -70,7 +73,10 @@
                 <td class="style1">
                     <asp:TextBox ID="txtusername" placeholder="Username" runat="server" Height="40px" Width="235px"></asp:TextBox>
                     </td>
-                    
+                    <td style="padding-left: 10px" valign="top">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                            ErrorMessage="Enter Username" ControlToValidate="txtusername"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                 <td class="style2">
@@ -78,28 +84,32 @@
                 <td class="style1">
                    <asp:TextBox ID="txtpswd" placeholder="Password" runat="server" Height="40px" Width="235px"></asp:TextBox>
                    </td>
-                
+                   <td style="padding-left: 10px" valign="top">
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                           ErrorMessage="Enter Password" ControlToValidate="txtpswd"></asp:RequiredFieldValidator>
+                   </td>
                     
                 </tr>
                 
                 </table>
                 <center>
+<<<<<<< HEAD
                     <asp:Button ID="btnLogin" runat="server" Text="Login" BackColor="#66FFFF"
                         ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" 
                         onclick="btnLogin_Click" PostBackUrl="~/form1.aspx" /></center>
+=======
+                    <asp:Button ID="btnLogin" runat="server" Text="Submit" BackColor="#66FFFF"
+                        ForeColor="#0033CC" BorderStyle="Groove" Height="32px" Font-Bold="True" /></center>
                         <br />
-                        <p class="forgot">
-                            <asp:LinkButton ID="lnkbtnForgotPassword" runat="server" Font-Bold="True" 
-                                Font-Size="13px" ForeColor="#990000" PostBackUrl="~/Forgotpswd.aspx">Forgot Password</asp:LinkButton><br /><br />
-                            <asp:LinkButton ID="lnkbtnSignUp" runat="server" Font-Bold="True" 
-                                Font-Size="15px" ForeColor="#006600" PostBackUrl="~/teamregister.aspx">Sign Up For New Register</asp:LinkButton></p>
+>>>>>>> 488ced1386637b0ae4b8ae598cc2b9692dd6beb3
+                        <br />
             
 			</form>
 		</div>
 
 	
 	
-		
+		<p class="forgot"><a href="Forgotpswd.aspx">Forgot your password? </a>Click here to reset it.</p>
 
 
 	</div><!-- container -->

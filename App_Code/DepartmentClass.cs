@@ -1,74 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data;
-using System.Data.SqlClient;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Web;
 
-public class DepartmentClass:ConnectionClass
-{
+
+//public class DepartmentClass:ConnectionClass
+//{
     
-        #region "All Field"
+//        #region "All Field"
 
-        private int _departmentid;
-        private string _departmentcode, _departmentname, _departmentshortname;
+//        private int _departmentid;
+//        private string _departmentcode, _departmentname, _departmentshortname;
 
-        #endregion
-
-
-        #region "All Properties"
+//        #endregion
 
 
-        public int Department_Id
-        {
-            get
-            {
-                return _departmentid;
-            }
-            set
-            {
-                _departmentid = value;
-            }
-        }
-
-        public string Department_Code
-        {
-            get
-            {
-                return _departmentcode;
-            }
-            set
-            {
-                _departmentcode = value;
-            }
-        }
-
-        public string Department_Name
-        {
-            get
-            {
-                return _departmentname;
-            }
-            set
-            {
-                _departmentname = value;
-            }
-        }
+//        #region "All Properties"
 
 
-        public string Department_ShortName
-        {
-            get
-            {
-                return _departmentshortname;
-            }
-            set
-            {
-                _departmentshortname = value;
-            }
-        }
+//        public int Department_Id
+//        {
+//            get
+//            {
+//                return _departmentid;
+//            }
+//            set
+//            {
+//                _departmentid = value;
+//            }
+//        }
+
+//        public string Department_Code
+//        {
+//            get
+//            {
+//                return _departmentcode;
+//            }
+//            set
+//            {
+//                _departmentcode = value;
+//            }
+//        }
+
+//        public string Department_Name
+//        {
+//            get
+//            {
+//                return _departmentname;
+//            }
+//            set
+//            {
+//                _departmentname = value;
+//            }
+//        }
 
 
-        #endregion//
+//        public string Department_ShortName
+//        {
+//            get
+//            {
+//                return _departmentshortname;
+//            }
+//            set
+//            {
+//                _departmentshortname = value;
+//            }
+//        }
+
+
+//        #endregion//
 	
-}
+//}

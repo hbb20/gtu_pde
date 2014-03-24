@@ -13,18 +13,5 @@ namespace gtu_pde
         {
 
         }
-        protected void btnGetPassword_Click(object sender, EventArgs e)
-        {
-            int teamid = Convert.ToInt32(txtteamid.Text);
-            string username = txtusername.Text.ToString();
-            int securityque = Convert.ToInt32(ddlSecurityQuestion.SelectedValue);
-            string securityans=txtsecans.Text.ToString();
-
-            UserClass objUser = new UserClass();
-
-            string password = objUser.GetPassword(teamid, username, securityque,securityans);
-
-
-        }
-}
+    }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeFile="Project_Details.aspx.cs" Inherits="gtu_pde.Project_Details" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Project_Details.aspx.cs" Inherits="gtu_pde.Project_Details" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style1
@@ -18,10 +18,10 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <%--<div class="content_box">--%>
         <form runat="server">
-            <table cellpadding="10px" cellspacing="10px" bgcolor="White" width="70%">
+            <table cellpadding="10px" cellspacing="10px" style="margin-left: 120px" bgcolor="White" width="675px">
                 <tr>
                     
                     <td class="style2"><strong>Team Id:</strong></td>
