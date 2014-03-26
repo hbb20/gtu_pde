@@ -216,7 +216,8 @@
          <asp:gridview ID="Gridview1" runat="server" ShowFooter="True" 
             AutoGenerateColumns="False"  OnRowCreated="Gridview1_RowCreated"
             Width="557px" 
-                   style="margin-left: 0px">
+                   style="margin-left: 0px" onrowdeleting="Gridview1_RowDeleting" 
+                   onselectedindexchanged="Gridview1_SelectedIndexChanged">
             <Columns>
             <asp:TemplateField HeaderText="FullName">
                 <ItemTemplate>
@@ -242,21 +243,14 @@
                 <asp:TemplateField HeaderText="ContactNo."><ItemTemplate>
                     <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
                 </ItemTemplate></asp:TemplateField>
-                <asp:TemplateField>
-                <FooterStyle HorizontalAlign="Right" />
-                <FooterTemplate>
-                 <asp:Button ID="ButtonAdd" runat="server" Text="Add New Row" OnClick="ButtonAdd_Click" />
-                </FooterTemplate>
-                <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">Remove</asp:LinkButton>
-                </ItemTemplate>
-                </asp:TemplateField>
+                <asp:CommandField ShowDeleteButton="True" />
             </Columns>
         </asp:gridview>
         <%--<asp:Button ID="ButtonAdd" runat="server" Text="Add New Row" OnClick="ButtonAdd_Click" />--%>
-        <asp:Button ID="Button1" runat="server" Text="Save" onclick="Button1_Click" />
+       
 
           </td>
+          <td> </td>
  </tr>
        
         <tr class="style37">

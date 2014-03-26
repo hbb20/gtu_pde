@@ -129,8 +129,9 @@ namespace gtu_pde
     {
         AddNewRowToGrid();
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    public void Button1_Click(object sender, EventArgs e)
     {
+        Response.Write("this is clicked");
         int rowIndex = 0;
         StringCollection sc = new StringCollection();
         if (ViewState["CurrentTable"] != null)
@@ -257,6 +258,14 @@ namespace gtu_pde
             Response.Redirect("Form1(2).aspx");
         }
 
-       
+
+        protected void Gridview1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+        protected void Gridview1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 }
 }
