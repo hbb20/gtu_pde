@@ -14,8 +14,9 @@ public partial class teamregister : System.Web.UI.Page
     SqlCommand cmd;
     DataSet ds;
     SqlDataAdapter da;
-    DataTable dt;
+    public DataTable dt;
     DataRow dr;
+ 
     protected void Page_Load(object sender, EventArgs e)
     {
         RadioButton2.Checked = true;
@@ -32,6 +33,7 @@ public partial class teamregister : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
+        Panel1.Visible = true;
         dt = new DataTable();
         dt.Columns.Add("Student Id");
         dt.Columns.Add("Enrollment No");
@@ -39,6 +41,7 @@ public partial class teamregister : System.Web.UI.Page
         dt.Columns.Add("Department");
         dt.Columns.Add("Contact");
         dt.Columns.Add("Email Id");
+        
        
 
         for (int intCnt = 0; intCnt < GridView1.Rows.Count; intCnt++)
@@ -46,13 +49,14 @@ public partial class teamregister : System.Web.UI.Page
             if (GridView1.Rows[intCnt].RowType == DataControlRowType.DataRow)
             {
                 dr = dt.NewRow();
-                dr["Student Id"] = GridView1.Rows[intCnt].Cells[0].Text;
-                dr["Enrollment No"] = GridView1.Rows[intCnt].Cells[1].Text;
-                dr["College Code"] = GridView1.Rows[intCnt].Cells[2].Text;
-                dr["Department"] = GridView1.Rows[intCnt].Cells[3].Text;
-                dr["Contact"] = GridView1.Rows[intCnt].Cells[4].Text;
-                dr["Email Id"] = GridView1.Rows[intCnt].Cells[5].Text;
+                dr["Student Id"] = GridView1.Rows[intCnt].Cells[1].Text;
+                dr["Enrollment No"] = GridView1.Rows[intCnt].Cells[2].Text;
+                dr["College Code"] = GridView1.Rows[intCnt].Cells[3].Text;
+                dr["Department"] = GridView1.Rows[intCnt].Cells[4].Text;
+                dr["Contact"] = GridView1.Rows[intCnt].Cells[5].Text;
+                dr["Email Id"] = GridView1.Rows[intCnt].Cells[6].Text;
                 dt.Rows.Add(dr);
+
             }
         }
 
@@ -132,4 +136,13 @@ public partial class teamregister : System.Web.UI.Page
             Response.Write("Request Not Sent");
         }
     }
+
+
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+       
+       
+    }
+
+    
 }

@@ -12,7 +12,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<form id="form1" runat="server">
+<form id="form1" runat="server" >
     <table align="center" cellpadding="0" cellspacing="0"
             style="background-position: center center; width: 500px; background-repeat: repeat;" bgcolor="White">
             <tr>
@@ -99,15 +99,21 @@
             
             <tr align="center">
                 <td align="center" height="30px" width="250px" colspan="3" style="width: 500px">
-                    <asp:Panel ID="Panel1" runat="server" >
+                    <asp:Panel ID="Panel1" runat="server" Visible="false" >
                       
                         <asp:GridView ID="GridView1" runat="server" 
-                            >
+                            onrowdeleting="GridView1_RowDeleting" >
+
+
+                            <Columns>
+                                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
+                            </Columns>
 
 
                         </asp:GridView>   
                         
                          <center>
+                             
                              <asp:Button ID="btnSubmit" runat="server" Text="Submit" Width="100px" 
                         BackColor="Maroon" ForeColor="White" BorderStyle="Groove" 
                         Font-Bold="True"  style="height: 26px" onclick="btnSubmit_Click"  

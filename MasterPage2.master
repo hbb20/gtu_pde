@@ -33,8 +33,6 @@
         <ul>
             <li><a href="teamregister.aspx" target="_parent">Team Register</a></li>
             <li><a href="Addmember.aspx" target="_parent">Add Members</a></li>
-            <li><a href="Detain.aspx" target="_parent">Detain</a></li>
-            <li><a href="Transfer.aspx" target="_parent">Transfer</a></li>
             <li><a href="Status.aspx">Status</a></li>
             
         </ul>    	
