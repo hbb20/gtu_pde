@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+using GTU_PDE;
 
 public class TeamClass:ConnectionClass1
 {
@@ -22,4 +24,8 @@ public class TeamClass:ConnectionClass1
             _teamid = value;
         }
     }
+
+
+
+   
 }

@@ -22,13 +22,15 @@
                 <td align="left" height="40px" style="padding-left: 10px" width="230px">
                     <asp:RadioButton ID="RadioButton1" GroupName="rbtn1" runat="server" Text="7<sup>th</sup> SEM" />
                     &nbsp;&nbsp;
-                    <asp:RadioButton ID="RadioButton2" GroupName="rbtn1" runat="server" Text="8<sup>th</sup> SEM" />
+                    <asp:RadioButton ID="RadioButton2" GroupName="rbtn1" runat="server" Text="8<sup>th</sup> SEM" Checked="true"/>
                 </td>
                 <td width="70"></td>
             </tr>
             <tr>
                 <td align="left" height="40px" width="250px" style="padding-left: 100px" 
                     class="style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ErrorMessage="*" ControlToValidate="txtTeamId" ValidationGroup="btnSubmit"></asp:RequiredFieldValidator>
                     Team Id:&nbsp;
                 </td>
                 <td align="left" height="40px" style="padding-left: 10px; margin-left: 40px;" 
@@ -42,6 +44,9 @@
             <tr>
                 <td align="left" height="40px" width="250px" style="padding-left: 100px" 
                     class="style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ErrorMessage="*" ControlToValidate="txtEnrollmentNo" 
+                        ValidationGroup="btnGo"></asp:RequiredFieldValidator>
                     Enrollment no:&nbsp;
                 </td>
                 <td align="left" height="40px" style="padding-left: 10px; margin-left: 40px;" 
@@ -52,7 +57,7 @@
                     <asp:Button ID="btnGo" runat="server" Text="Go"   BackColor="Maroon" 
                         ForeColor="White" BorderStyle="Groove" 
                         Font-Bold="True"  style="height: 26px; text-align:left; margin-left: 0px;" 
-                        width="50px" onclick="btnGo_Click" 
+                        width="50px" onclick="btnGo_Click" ValidationGroup="btnGo" 
                          />
                 </td>
             </tr>
@@ -60,6 +65,7 @@
             <tr>
                 <td align="left" height="40px" width="250px" style="padding-left: 100px" 
                     class="style1">
+                    &nbsp;
                     College code:&nbsp;
                 </td>
                 <td align="left" height="40px" style="padding-left: 10px" width="230px">
@@ -71,6 +77,7 @@
             <tr>
                 <td align="left" height="40px" width="250px" style="padding-left: 100px" 
                     class="style1">
+                    &nbsp;
                     Department:</td>
                 <td align="left" height="40px" style="padding-left: 10px" width="230px">
                     <asp:TextBox ID="txtDepartment" runat="server" Enabled="False"></asp:TextBox>
@@ -80,6 +87,9 @@
             <tr>
                 <td align="left" height="40px" width="250px" style="padding-left: 100px" 
                     class="style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                        ErrorMessage="*" ControlToValidate="txtContactNo" 
+                        ValidationGroup="btnSubmit"></asp:RequiredFieldValidator>
                     Contact no:&nbsp;
                 </td>
                 <td align="left" height="40px" style="padding-left: 10px" width="230px">
@@ -90,6 +100,9 @@
             <tr>
                 <td align="left" height="40px" width="250px" style="padding-left: 100px" 
                     class="style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                        ErrorMessage="*" ControlToValidate="txtEmailid" 
+                        ValidationGroup="btnSubmit"></asp:RequiredFieldValidator>
                     Email id:</td>
                 <td align="left" height="40px" style="padding-left: 10px" width="230px">
                     <asp:TextBox ID="txtEmailid" runat="server"></asp:TextBox>

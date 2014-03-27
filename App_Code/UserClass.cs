@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using GTU_PDE;
 
 
    
@@ -16,28 +17,16 @@ public class UserClass
     DataSet ds;
     #region "All Field"
 
-    private int _userid,_teamid,_queid;
+    private int _teamid,_queid;
     private DateTime user_createddate;
     private string _username,_userpassword,_securityans;
-    private char _userisactive;
+    private string  _userisactive;
 
     #endregion
 
 
     #region "All Properties"
 
-
-    public int User_Id
-    {
-        get
-        {
-            return _userid;
-        }
-        set
-        {
-            _userid = value;
-        }
-    }
 
    
     public int Team_Id
@@ -112,7 +101,7 @@ public class UserClass
     }
 
 
-    public char User_IsActive
+    public string User_IsActive
     {
         get
         {
@@ -136,7 +125,9 @@ public class UserClass
     public bool CheckUser(int teamid, string username, string password)
     {
 
-        mycon();
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["db1ConnectionString"].ToString());
+        con.Open();
+  
         string strQuery = "SELECT COUNT(*) FROM User_mst WHERE Team_Id=@teamid AND User_Name=@username AND User_Password=@password";
         cmd = new SqlCommand(strQuery, con);
 
@@ -156,6 +147,35 @@ public class UserClass
         }
     }
 
-      
+
+
+    public bool AddNewUser()
+    {
+        mycon();
+
+        SqlParameter[] pmt = new SqlParameter[6];
+
+        pmt[0] = new SqlParameter("@Team_Id", this.Team_Id);
+        pmt[0].DbType = DbType.Int32;
+
+        pmt[1] = new SqlParameter("@User_Name", this.User_Name);
+        pmt[1].DbType = DbType.String;
+
+        pmt[2] = new SqlParameter("@User_Password", this.User_Password);
+        pmt[2].DbType = DbType.String;
+
+        pmt[3] = new SqlParameter("@User_IsActive", this.User_IsActive);
+        pmt[3].DbType = DbType.String;
+
+        pmt[4] = new SqlParameter("@SecurityQue_ID", this.SecurityQue_ID);
+        pmt[4].DbType = DbType.Int32;
+
+        pmt[5] = new SqlParameter("@User_SecurityAns", this.User_SecurityAns);
+        pmt[5].DbType = DbType.String;
+
+        DataAccess.ExecuteNonQuery(CommandType.StoredProcedure, "AddNewUser", pmt);
+        return true;
+        
     }
+}
 

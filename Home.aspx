@@ -1,65 +1,80 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="gtu_pde.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    </asp:Content>
-<%--right-side--%>
+    <style type="text/css">
+        
+        .position {
+        position:relative;
+        left:30;
+        top:40;
+        }
 
-
-
-
+</style>
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
-<asp:Table ID="Table1" runat="server">
-<asp:TableRow>
-<asp:TableCell Width="50%">
+    <table style="margin-left:0px;background-color:white; Width:1000px;" >
+    <tr>
+    <td style="width:50%; height:200px;" valign="top">
 
-    <asp:Panel ID="Panel1" runat="server" style="width:500px; height: 228px; margin-left:20px;" bgcolor="White" class="content_box">
-    </asp:Panel>
-           </asp:TableCell>   
+    <table style="width:500px;margin-left:0px;margin-top:0px;">
 
-<asp:TableCell width="70%">
+    <tr>
+    <td colspan="4">
+
+        <asp:GridView ID="GridView1" runat="server" cellpadding="13" cellspacing="35">
+           <Columns>
+
+            <asp:TemplateField HeaderText="Status" >
+              <ItemTemplate>
+                <asp:LinkButton ID="btn1" runat="server" Text="Confirm  &nbsp&nbsp&nbsp" ></asp:LinkButton>
+              
+                <asp:LinkButton ID="btn2" runat="server" Text="Reject"></asp:LinkButton>
+              </ItemTemplate>
+            </asp:TemplateField>
+            </Columns>            
+        </asp:GridView>
+    
+    </td>
+    
+    
+    </tr>
+
+
+    </table>
+
+
+
+    </td>
+        <td style="width:50%; height:200px;" valign="top"  align="left">
+        
+
+        <table  style="position:relative;margin-left:40px;margin-top:140px; width:500px;">
+        <tr>
+        <td style="width:50%; height:50px;" align="left">
+
+        <asp:Label ID="lblTm" runat="server" Text="Team ID  :"></asp:Label>
+
+        </td>
+        <td style="width:50%; height:50px;" align="left">
+
+        <asp:Label ID="lblTeamId" runat="server" Text=""></asp:Label>
+        </td>
+        </tr>
+        <tr>
+        <td align="left" colspan="2">
+            <asp:GridView ID="GridView2" runat="server">
+            </asp:GridView>
+        
+        </td>
+        </tr>
+        </table>
+            
            
-                
-                    <asp:Table runat="server" style="width:575px; height:228px;" BackColor="White">
-
-                     <asp:TableRow><asp:TableCell colspan="2" class="style12"><h2>Welcome To GTU</h2></asp:TableCell></asp:TableRow>
-                        <asp:TableRow class="style9"  ForeColor="Black" style="font-weight:bold">
-                            <asp:TableCell class="style7" align="left">
-                                <asp:Label ID="lblTeamidfix" runat="server" Text="Team  Id" ></asp:Label>
-
-                            </asp:TableCell>
-                            <asp:TableCell class="style8"  ForeColor="Black" align="left"  style="font-weight:bold">
-                                <asp:Label ID="lblTeamiddisplay" runat="server" Text="" Visible="False"></asp:Label>
-                            </asp:TableCell>
-                            </asp:TableRow>
-                            <asp:TableRow class="style9"  ForeColor="Black" align="left"  style="font-weight:bold">
-                            <asp:TableCell class="style4">
-                                <asp:Label ID="lblMemberdetailsfix" runat="server" Text="Member Details"></asp:Label>
-
-                            </asp:TableCell>
-                            <asp:TableCell class="style3">
-                                <asp:Label ID="lblMemberdetailsdisplay1" runat="server" Text="" Visible="False"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblMemberdetailsdisplay2" runat="server" Text="" Visible="False"></asp:Label>
-                                <br />
-                                <asp:Label ID="lblMemberdetailsdisplay3" runat="server" Text="" Visible="False"></asp:Label>
-
-                            </asp:TableCell>
-                            </asp:TableRow>
-                            <asp:TableRow class="style9"  ForeColor="Black" align="left"  style="font-weight:bold">
-                                <asp:TableCell class="style5">
-                                <asp:Label ID="lblProjecttitlefix" runat="server" Text="Project Title"></asp:Label>
-
-                                </asp:TableCell>
-                                <asp:TableCell class="style6">
-                                    <asp:Label ID="lblProjecttitledisplay" runat="server" Text="" Visible="False"></asp:Label>
-                                </asp:TableCell>
-                            </asp:TableRow>
-                    </asp:Table>
-           
-       
-  </asp:TableCell>
-</asp:TableRow>                   
-</asp:Table>	
+            
+        </td>
+    </tr>
+    </form>
+    <table>
 
 
 </form>		

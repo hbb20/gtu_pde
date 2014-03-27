@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+
 
 namespace gtu_pde
 {
@@ -13,6 +16,14 @@ namespace gtu_pde
         {
 
         }
+        SqlConnection con;
+        void mycon()
+        {
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["db1ConnectionString"].ToString());
+            con.Open();
+        }
+
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
 

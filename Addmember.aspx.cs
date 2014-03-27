@@ -74,7 +74,13 @@ public partial class Addmember : System.Web.UI.Page
 
         if (objProj.AddMember())
         {
-            Response.Write("<script>alert('Request send Successfully')</script>");
+            Response.Write("Request send Successfully");
+            txtTeamId.Text = null;
+            txtEnrollmentNo.Text = null;
+            txtCollegeCode.Text = null;
+            txtDepartment.Text = null;
+            txtContactNo.Text = null;
+            txtEmailid.Text = null;
         }
         else
         {
